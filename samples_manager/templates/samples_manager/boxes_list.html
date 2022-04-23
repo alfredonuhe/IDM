@@ -1,0 +1,78 @@
+{% extends 'samples_manager/base_all_tab_list.html' %}
+{% load static %}
+
+{% block modals %}
+<!-- THE MODAL WE WILL BE USING -->
+<div class='ui modal' id='modal-box'>
+    <i class='close icon'></i>
+    <div class='content modal-content'>
+    </div>
+</div>
+{% endblock %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<div class='active section'>Boxes</div>
+{% endblock %}
+
+{% block actions %}
+<div class='two wide column'>
+    <button type='button' class='ui blue tiny button action-button js-load-box-form' id='box-create'
+        title='Create new sample' data-url='{% url "samples_manager:box_create" %}'>
+        <i class='plus icon'></i>Create
+    </button>
+</div>
+<div class='seven wide column'>
+    <button type='button' class='ui tiny button action-button js-redirect-form single-action' 
+        id='box-manage-items' title='Manage box items'
+        data-url='{% url "samples_manager:redirect_box_items_list" %}'>
+        <i class='pencil icon'></i>Manage Items
+    </button>
+    <button type='button' class='ui tiny button action-button js-redirect-form single-action' 
+        id='box-read-infoream' title='Read inforEAM'
+        data-url='{% url "samples_manager:box_read_infoream" %}'>
+        <i class='database icon'></i>Read InforEAM
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-box-form single-action' 
+        id='box-update' title='Update box'
+        data-url='{% url "samples_manager:box_update" %}'>
+        <i class='pencil icon'></i>Update
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-box-form single-action' 
+        id='box-clone' title='Clone box'
+        data-url='{% url "samples_manager:box_clone" %}'>
+        <i class='clone icon'></i>Clone
+    </button>
+    <button type='button' class=' ui tiny button action-button js-redirect-form single-action'
+        id='box-details' title='View details'
+        data-url='{% url "samples_manager:redirect_box_details" %}'>
+        <i class='eye icon'></i>View Details
+    </button>
+</div>
+<div class='five wide column'>
+    <button type='button' class='ui tiny button action-button js-load-box-form group-action'
+        id='box-write-infoream'title='Write to inforEAM'
+        data-url='{% url "samples_manager:box_write_infoream" %}'>
+        <i class='database icon'></i>Write to inforEAM
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-box-form group-action' 
+        id='box-print' title='Print box'
+        data-url='{% url "samples_manager:equipment_print" %}'>
+        <i class='qrcode icon'></i>Print
+    </button>
+    <button type='button' class='ui red tiny button action-button js-load-box-form group-action' 
+        id='box-delete' title='Delete box'
+        data-url='{% url "samples_manager:box_delete" %}'>
+        <i class='trash icon'></i>Delete
+    </button>
+</div>
+{% endblock %}
+
+{% block partial_template %}
+{% include 'samples_manager/partial_boxes_list.html' %}
+{% endblock %}
+
+{% block javascript %}
+<script type='text/javascript' src='{% static "js/boxes.js" %}'></script>
+{% endblock %}

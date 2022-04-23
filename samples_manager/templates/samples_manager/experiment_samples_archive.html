@@ -1,0 +1,22 @@
+{% extends 'samples_manager/base_no_tab_list.html' %}
+{% load static %}
+
+{% block modals %}
+{% endblock %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<a class='section' href='{% url "samples_manager:experiments_list" %}'>Experiments</a>
+<div class='divider'> / </div>
+<a class='section' href='{% url "samples_manager:experiment_samples_list" experiment.id%}'>Samples {{ experiment.title }}</a>
+<div class='divider'> / </div>
+<div class='active section'>Archive</div>
+{% endblock %}
+
+{% block partial_template %}
+{% include 'samples_manager/partial_experiment_samples_archive.html' %}
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

@@ -1,0 +1,26 @@
+<meta charset='UTF-8'>
+{% load static %}
+{% load widget_tweaks %}
+<form method='post' action='{% url "samples_manager:experiment_status_update" %}'
+    class='ui form js-submit-experiment-form js-experiment-update-form'>
+    {% csrf_token %}
+    <div class='ui center aligned segment container'>
+        <div class='ui centered header'>
+            <h3>Update Status</h3>
+        </div>
+        {% include 'samples_manager/form_collapsible_text.html' %}
+        {% for field in form %}
+        {% include 'samples_manager/form_field.html' %}
+        {% endfor %}
+
+        <div class='two ui buttons actions'>
+            <button type='button' class='ui deny medium button'>Cancel</button>
+            <button type='submit' id='experiment-submit' class='ui positive medium button submit'>Submit</button>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        activateSearchSelectFields();
+    });
+</script>

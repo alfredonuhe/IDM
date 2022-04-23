@@ -1,0 +1,49 @@
+{% extends 'samples_manager/base_all_tab_list.html' %}
+{% load static %}
+
+{% block modals %}
+<!-- THE MODAL WE WILL BE USING -->
+<div class='ui modal' id='modal-fluence-factor'>
+    <i class='close icon'></i>
+    <div class='content modal-content'>
+    </div>
+</div>
+{% endblock %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<div class='active section'>Fluence Factors</div>
+{% endblock %}
+
+{% block actions %}
+<div class='two wide column'>
+    <button type='button' class='ui blue tiny button action-button js-load-fluence-factor-form' 
+        id='fluence-factor-create' title='Create fluence factor'
+        data-url='{% url "samples_manager:fluence_factor_create" %}'>
+        <i class='plus icon'></i>Create
+    </button>
+</div>
+<div class='two wide column'>
+    <button type='button' class='ui tiny button action-button js-load-fluence-factor-form single-action' 
+        id='fluence-factor-update' title='Update fluence factor'
+        data-url='{% url "samples_manager:fluence_factor_update" %}'>
+        <i class='pencil icon'></i>Update
+    </button>
+</div>
+<div class='four wide column'>
+    <button type='button' class='ui red tiny button action-button js-load-fluence-factor-form group-action' 
+        id='fluence-factor-delete' title='Delete fluence factor'
+        data-url='{% url "samples_manager:fluence_factor_delete" %}'>
+        <i class='trash icon'></i>Delete
+    </button>
+</div>
+{% endblock %}
+
+{% block partial_template %}
+{% include 'samples_manager/partial_fluence_factors_list.html' %}
+{% endblock %}
+
+{% block javascript %}
+<script type='text/javascript' src='{% static "js/fluence_factors.js" %}'></script>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% load static %}
+{% if pagination_data.double_pagination %}
+<div id='partial-template-pagination-top'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+{% endif %}
+<div id='partial-template-table'>
+    <table class='ui center aligned sortable celled table' id='data-table'>
+        <thead>
+            <tr>
+                <th class='sorttable_nosort'><input name='select_all' value='1'
+                    id='all-checkbox' class='checkbox' type='checkbox' /></th>
+                <th>Row</th>
+                <th>Last<br>login</th>
+                <th>Name<br>Surname</th>
+                <th>E-mail</th>
+                <th>Telephone/<br>Mobile</th>
+                <th>Department/<br>Group</th>
+                <th>Home<br>institute</th>
+                <th>Role</th>
+                <th>Experiments</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user_data in users_data %}
+            <tr>
+                <td><input type='checkbox' class='checkbox' id='user-{{user_data.user.id}}' name='checks[]'
+                    value='{{user_data.user.id}}'></td>
+                <td>{{ user_data.row }}</td>
+                <td>{{ user_data.user.last_login|date:"d/m/Y"}}</td>
+                <td>{{ user_data.user.name }}<br>{{ user_data.user.surname }}</td>
+                <td>{{ user_data.user.email }}</td>
+                <td>{{ user_data.user.telephone }}<br>{{ user_data.user.mobile }}</td>
+                <td>{{ user_data.user.department }}</td>
+                <td>{{ user_data.user.home_institute }}</td>
+                <td>{{ user_data.user.role }}</td>
+                <td><a style='text-decoration: underline'
+                        href='{% url "samples_manager:admin_experiments_user_view" user_data.user.id  %}'>{{ user_data.experiments_number }}</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan='8' class='text-center'>There are no users</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id='partial-template-pagination-bottom'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+<script type='text/javascript' src='{% static "js/checkboxes.js" %}'></script>

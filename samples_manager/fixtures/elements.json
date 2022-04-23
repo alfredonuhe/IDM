@@ -1,0 +1,1554 @@
+[
+    {
+        "model": "samples_manager.element",
+        "pk": 1,
+        "fields": {
+            "atomic_number": 1,
+            "atomic_symbol": "H",
+            "atomic_mass": 1.007975,
+            "density": 6.99e-05,
+            "min_ionization": 4.103,
+            "nu_coll_length": 42.8,
+            "nu_int_length": 52,
+            "pi_coll_length": 70.4,
+            "pi_int_length": 80.3,
+            "radiation_length": 63.05
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 2,
+        "fields": {
+            "atomic_number": 2,
+            "atomic_symbol": "He",
+            "atomic_mass": 4.002602,
+            "density": 0.000179,
+            "min_ionization": 1.937,
+            "nu_coll_length": 51.8,
+            "nu_int_length": 71,
+            "pi_coll_length": 79.5,
+            "pi_int_length": 103.6,
+            "radiation_length": 94.32
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 3,
+        "fields": {
+            "atomic_number": 3,
+            "atomic_symbol": "Li",
+            "atomic_mass": 6.9675,
+            "density": 0.543,
+            "min_ionization": 1.639,
+            "nu_coll_length": 52.2,
+            "nu_int_length": 71.3,
+            "pi_coll_length": 79.1,
+            "pi_int_length": 103.3,
+            "radiation_length": 82.77
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 4,
+        "fields": {
+            "atomic_number": 4,
+            "atomic_symbol": "Be",
+            "atomic_mass": 9.0121831,
+            "density": 1.85,
+            "min_ionization": 1.595,
+            "nu_coll_length": 55.3,
+            "nu_int_length": 77.8,
+            "pi_coll_length": 82.4,
+            "pi_int_length": 109.9,
+            "radiation_length": 65.19
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 5,
+        "fields": {
+            "atomic_number": 5,
+            "atomic_symbol": "B",
+            "atomic_mass": 10.8135,
+            "density": 2.34,
+            "min_ionization": 1.623,
+            "nu_coll_length": 58,
+            "nu_int_length": 83.3,
+            "pi_coll_length": 85.2,
+            "pi_int_length": 115.5,
+            "radiation_length": 52.68
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 6,
+        "fields": {
+            "atomic_number": 6,
+            "atomic_symbol": "C",
+            "atomic_mass": 12.0106,
+            "density": 2.25,
+            "min_ionization": 1.745,
+            "nu_coll_length": 59.2,
+            "nu_int_length": 85.8,
+            "pi_coll_length": 86.5,
+            "pi_int_length": 117.8,
+            "radiation_length": 42.7
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 7,
+        "fields": {
+            "atomic_number": 7,
+            "atomic_symbol": "N",
+            "atomic_mass": 14.006855,
+            "density": 0.00125,
+            "min_ionization": 1.825,
+            "nu_coll_length": 61.1,
+            "nu_int_length": 89.7,
+            "pi_coll_length": 88.4,
+            "pi_int_length": 121.7,
+            "radiation_length": 37.99
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 8,
+        "fields": {
+            "atomic_number": 8,
+            "atomic_symbol": "O",
+            "atomic_mass": 15.9994,
+            "density": 0.00143,
+            "min_ionization": 1.801,
+            "nu_coll_length": 61.3,
+            "nu_int_length": 90.2,
+            "pi_coll_length": 88.5,
+            "pi_int_length": 121.9,
+            "radiation_length": 34.24
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 9,
+        "fields": {
+            "atomic_number": 9,
+            "atomic_symbol": "F",
+            "atomic_mass": 18.99840316,
+            "density": 0.0017,
+            "min_ionization": 1.676,
+            "nu_coll_length": 65,
+            "nu_int_length": 97.4,
+            "pi_coll_length": 91,
+            "pi_int_length": 127.2,
+            "radiation_length": 32.93
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 10,
+        "fields": {
+            "atomic_number": 10,
+            "atomic_symbol": "Ne",
+            "atomic_mass": 20.1797,
+            "density": 0.0009,
+            "min_ionization": 1.724,
+            "nu_coll_length": 65.7,
+            "nu_int_length": 99,
+            "pi_coll_length": 91.8,
+            "pi_int_length": 128.7,
+            "radiation_length": 28.93
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 11,
+        "fields": {
+            "atomic_number": 11,
+            "atomic_symbol": "Na",
+            "atomic_mass": 22.98976928,
+            "density": 0.971,
+            "min_ionization": 1.639,
+            "nu_coll_length": 67.4,
+            "nu_int_length": 102.6,
+            "pi_coll_length": 93.4,
+            "pi_int_length": 132.2,
+            "radiation_length": 27.74
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 12,
+        "fields": {
+            "atomic_number": 12,
+            "atomic_symbol": "Mg",
+            "atomic_mass": 24.3055,
+            "density": 1.74,
+            "min_ionization": 1.674,
+            "nu_coll_length": 68.2,
+            "nu_int_length": 104.1,
+            "pi_coll_length": 94.2,
+            "pi_int_length": 133.7,
+            "radiation_length": 25.03
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 13,
+        "fields": {
+            "atomic_number": 13,
+            "atomic_symbol": "Al",
+            "atomic_mass": 26.9815385,
+            "density": 2.7,
+            "min_ionization": 1.615,
+            "nu_coll_length": 69.7,
+            "nu_int_length": 107.2,
+            "pi_coll_length": 95.6,
+            "pi_int_length": 136.7,
+            "radiation_length": 24.01
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 14,
+        "fields": {
+            "atomic_number": 14,
+            "atomic_symbol": "Si",
+            "atomic_mass": 28.085,
+            "density": 2.33,
+            "min_ionization": 1.664,
+            "nu_coll_length": 70.2,
+            "nu_int_length": 108.4,
+            "pi_coll_length": 96.2,
+            "pi_int_length": 137.7,
+            "radiation_length": 21.82
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 15,
+        "fields": {
+            "atomic_number": 15,
+            "atomic_symbol": "P",
+            "atomic_mass": 30.973762,
+            "density": 1.82,
+            "min_ionization": 1.613,
+            "nu_coll_length": 71.7,
+            "nu_int_length": 111.4,
+            "pi_coll_length": 97.5,
+            "pi_int_length": 140.7,
+            "radiation_length": 21.21
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 16,
+        "fields": {
+            "atomic_number": 16,
+            "atomic_symbol": "S",
+            "atomic_mass": 32.0675,
+            "density": 2.07,
+            "min_ionization": 1.652,
+            "nu_coll_length": 72.2,
+            "nu_int_length": 112.4,
+            "pi_coll_length": 98,
+            "pi_int_length": 141.7,
+            "radiation_length": 19.5
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 17,
+        "fields": {
+            "atomic_number": 17,
+            "atomic_symbol": "Cl",
+            "atomic_mass": 35.4515,
+            "density": 0.00321,
+            "min_ionization": 1.63,
+            "nu_coll_length": 73.8,
+            "nu_int_length": 115.7,
+            "pi_coll_length": 99.5,
+            "pi_int_length": 144.9,
+            "radiation_length": 19.28
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 18,
+        "fields": {
+            "atomic_number": 18,
+            "atomic_symbol": "Ar",
+            "atomic_mass": 39.948,
+            "density": 0.00178,
+            "min_ionization": 1.519,
+            "nu_coll_length": 75.7,
+            "nu_int_length": 119.7,
+            "pi_coll_length": 101.3,
+            "pi_int_length": 149,
+            "radiation_length": 19.55
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 19,
+        "fields": {
+            "atomic_number": 19,
+            "atomic_symbol": "K",
+            "atomic_mass": 39.0983,
+            "density": 0.86,
+            "min_ionization": 1.623,
+            "nu_coll_length": 75.4,
+            "nu_int_length": 119,
+            "pi_coll_length": 101,
+            "pi_int_length": 148.1,
+            "radiation_length": 17.32
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 20,
+        "fields": {
+            "atomic_number": 20,
+            "atomic_symbol": "Ca",
+            "atomic_mass": 40.078,
+            "density": 1.55,
+            "min_ionization": 1.655,
+            "nu_coll_length": 75.8,
+            "nu_int_length": 119.8,
+            "pi_coll_length": 101.4,
+            "pi_int_length": 148.8,
+            "radiation_length": 16.14
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 21,
+        "fields": {
+            "atomic_number": 21,
+            "atomic_symbol": "Sc",
+            "atomic_mass": 44.955908,
+            "density": 2.99,
+            "min_ionization": 1.522,
+            "nu_coll_length": 77.7,
+            "nu_int_length": 123.9,
+            "pi_coll_length": 103.3,
+            "pi_int_length": 152.9,
+            "radiation_length": 16.55
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 22,
+        "fields": {
+            "atomic_number": 22,
+            "atomic_symbol": "Ti",
+            "atomic_mass": 47.867,
+            "density": 4.54,
+            "min_ionization": 1.477,
+            "nu_coll_length": 78.8,
+            "nu_int_length": 126.2,
+            "pi_coll_length": 104.3,
+            "pi_int_length": 155.2,
+            "radiation_length": 16.16
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 23,
+        "fields": {
+            "atomic_number": 23,
+            "atomic_symbol": "V",
+            "atomic_mass": 50.9415,
+            "density": 6.11,
+            "min_ionization": 1.436,
+            "nu_coll_length": 80,
+            "nu_int_length": 128.5,
+            "pi_coll_length": 105.3,
+            "pi_int_length": 157.5,
+            "radiation_length": 15.84
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 24,
+        "fields": {
+            "atomic_number": 24,
+            "atomic_symbol": "Cr",
+            "atomic_mass": 51.9961,
+            "density": 7.19,
+            "min_ionization": 1.456,
+            "nu_coll_length": 80.3,
+            "nu_int_length": 129.3,
+            "pi_coll_length": 105.7,
+            "pi_int_length": 158.2,
+            "radiation_length": 14.94
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 25,
+        "fields": {
+            "atomic_number": 25,
+            "atomic_symbol": "Mn",
+            "atomic_mass": 54.938044,
+            "density": 7.43,
+            "min_ionization": 1.428,
+            "nu_coll_length": 81.4,
+            "nu_int_length": 131.4,
+            "pi_coll_length": 106.7,
+            "pi_int_length": 160.2,
+            "radiation_length": 14.64
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 26,
+        "fields": {
+            "atomic_number": 26,
+            "atomic_symbol": "Fe",
+            "atomic_mass": 55.845,
+            "density": 7.86,
+            "min_ionization": 1.451,
+            "nu_coll_length": 81.7,
+            "nu_int_length": 132.1,
+            "pi_coll_length": 107,
+            "pi_int_length": 160.8,
+            "radiation_length": 13.84
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 27,
+        "fields": {
+            "atomic_number": 27,
+            "atomic_symbol": "Co",
+            "atomic_mass": 58.933194,
+            "density": 8.9,
+            "min_ionization": 1.419,
+            "nu_coll_length": 82.7,
+            "nu_int_length": 134.2,
+            "pi_coll_length": 107.9,
+            "pi_int_length": 162.9,
+            "radiation_length": 13.62
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 28,
+        "fields": {
+            "atomic_number": 28,
+            "atomic_symbol": "Ni",
+            "atomic_mass": 58.6934,
+            "density": 8.9,
+            "min_ionization": 1.468,
+            "nu_coll_length": 82.6,
+            "nu_int_length": 134.1,
+            "pi_coll_length": 107.9,
+            "pi_int_length": 162.6,
+            "radiation_length": 12.68
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 29,
+        "fields": {
+            "atomic_number": 29,
+            "atomic_symbol": "Cu",
+            "atomic_mass": 63.546,
+            "density": 8.96,
+            "min_ionization": 1.403,
+            "nu_coll_length": 84.2,
+            "nu_int_length": 137.3,
+            "pi_coll_length": 109.3,
+            "pi_int_length": 165.9,
+            "radiation_length": 12.86
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 30,
+        "fields": {
+            "atomic_number": 30,
+            "atomic_symbol": "Zn",
+            "atomic_mass": 65.38,
+            "density": 7.13,
+            "min_ionization": 1.411,
+            "nu_coll_length": 84.7,
+            "nu_int_length": 138.5,
+            "pi_coll_length": 109.9,
+            "pi_int_length": 167,
+            "radiation_length": 12.43
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 31,
+        "fields": {
+            "atomic_number": 31,
+            "atomic_symbol": "Ga",
+            "atomic_mass": 69.723,
+            "density": 5.9,
+            "min_ionization": 1.379,
+            "nu_coll_length": 86,
+            "nu_int_length": 141.2,
+            "pi_coll_length": 111.1,
+            "pi_int_length": 169.7,
+            "radiation_length": 12.47
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 32,
+        "fields": {
+            "atomic_number": 32,
+            "atomic_symbol": "Ge",
+            "atomic_mass": 72.63,
+            "density": 5.32,
+            "min_ionization": 1.37,
+            "nu_coll_length": 86.9,
+            "nu_int_length": 143,
+            "pi_coll_length": 111.9,
+            "pi_int_length": 171.4,
+            "radiation_length": 12.25
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 33,
+        "fields": {
+            "atomic_number": 33,
+            "atomic_symbol": "As",
+            "atomic_mass": 74.921595,
+            "density": 5.73,
+            "min_ionization": 1.37,
+            "nu_coll_length": 87.5,
+            "nu_int_length": 144.4,
+            "pi_coll_length": 112.5,
+            "pi_int_length": 172.7,
+            "radiation_length": 11.94
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 34,
+        "fields": {
+            "atomic_number": 34,
+            "atomic_symbol": "Se",
+            "atomic_mass": 78.971,
+            "density": 4.79,
+            "min_ionization": 1.343,
+            "nu_coll_length": 88.7,
+            "nu_int_length": 146.7,
+            "pi_coll_length": 113.5,
+            "pi_int_length": 175,
+            "radiation_length": 11.91
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 35,
+        "fields": {
+            "atomic_number": 35,
+            "atomic_symbol": "Br",
+            "atomic_mass": 79.904,
+            "density": 3.12,
+            "min_ionization": 1.38,
+            "nu_coll_length": 88.9,
+            "nu_int_length": 147.2,
+            "pi_coll_length": 113.8,
+            "pi_int_length": 175.5,
+            "radiation_length": 11.42
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 36,
+        "fields": {
+            "atomic_number": 36,
+            "atomic_symbol": "Kr",
+            "atomic_mass": 83.798,
+            "density": 0.00374,
+            "min_ionization": 1.357,
+            "nu_coll_length": 90,
+            "nu_int_length": 149.4,
+            "pi_coll_length": 114.8,
+            "pi_int_length": 177.6,
+            "radiation_length": 11.37
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 37,
+        "fields": {
+            "atomic_number": 37,
+            "atomic_symbol": "Rb",
+            "atomic_mass": 85.4678,
+            "density": 1.53,
+            "min_ionization": 1.356,
+            "nu_coll_length": 90.4,
+            "nu_int_length": 150.3,
+            "pi_coll_length": 115.2,
+            "pi_int_length": 178.5,
+            "radiation_length": 11.03
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 38,
+        "fields": {
+            "atomic_number": 38,
+            "atomic_symbol": "Sr",
+            "atomic_mass": 87.62,
+            "density": 2.54,
+            "min_ionization": 1.353,
+            "nu_coll_length": 91,
+            "nu_int_length": 151.5,
+            "pi_coll_length": 115.7,
+            "pi_int_length": 179.6,
+            "radiation_length": 10.76
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 39,
+        "fields": {
+            "atomic_number": 39,
+            "atomic_symbol": "Y",
+            "atomic_mass": 88.90584,
+            "density": 4.47,
+            "min_ionization": 1.359,
+            "nu_coll_length": 91.3,
+            "nu_int_length": 152.2,
+            "pi_coll_length": 116,
+            "pi_int_length": 180.3,
+            "radiation_length": 10.41
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 40,
+        "fields": {
+            "atomic_number": 40,
+            "atomic_symbol": "Zr",
+            "atomic_mass": 91.224,
+            "density": 6.51,
+            "min_ionization": 1.349,
+            "nu_coll_length": 91.9,
+            "nu_int_length": 153.4,
+            "pi_coll_length": 116.6,
+            "pi_int_length": 181.4,
+            "radiation_length": 10.2
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 41,
+        "fields": {
+            "atomic_number": 41,
+            "atomic_symbol": "Nb",
+            "atomic_mass": 92.90637,
+            "density": 8.57,
+            "min_ionization": 1.343,
+            "nu_coll_length": 92.3,
+            "nu_int_length": 154.3,
+            "pi_coll_length": 117,
+            "pi_int_length": 182.3,
+            "radiation_length": 9.92
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 42,
+        "fields": {
+            "atomic_number": 42,
+            "atomic_symbol": "Mo",
+            "atomic_mass": 95.95,
+            "density": 10.2,
+            "min_ionization": 1.329,
+            "nu_coll_length": 93,
+            "nu_int_length": 155.8,
+            "pi_coll_length": 117.7,
+            "pi_int_length": 183.8,
+            "radiation_length": 9.8
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 43,
+        "fields": {
+            "atomic_number": 43,
+            "atomic_symbol": "Tc",
+            "atomic_mass": 98,
+            "density": 11.5,
+            "min_ionization": 1.325,
+            "nu_coll_length": 93.5,
+            "nu_int_length": 156.8,
+            "pi_coll_length": 118.1,
+            "pi_int_length": 184.7,
+            "radiation_length": 9.58
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 44,
+        "fields": {
+            "atomic_number": 44,
+            "atomic_symbol": "Ru",
+            "atomic_mass": 101.07,
+            "density": 12.4,
+            "min_ionization": 1.307,
+            "nu_coll_length": 94.3,
+            "nu_int_length": 158.4,
+            "pi_coll_length": 118.8,
+            "pi_int_length": 186.3,
+            "radiation_length": 9.48
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 45,
+        "fields": {
+            "atomic_number": 45,
+            "atomic_symbol": "Rh",
+            "atomic_mass": 102.9055,
+            "density": 12.4,
+            "min_ionization": 1.31,
+            "nu_coll_length": 94.7,
+            "nu_int_length": 159.3,
+            "pi_coll_length": 119.2,
+            "pi_int_length": 187.1,
+            "radiation_length": 9.27
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 46,
+        "fields": {
+            "atomic_number": 46,
+            "atomic_symbol": "Pd",
+            "atomic_mass": 106.42,
+            "density": 12,
+            "min_ionization": 1.289,
+            "nu_coll_length": 95.5,
+            "nu_int_length": 161,
+            "pi_coll_length": 120,
+            "pi_int_length": 188.8,
+            "radiation_length": 9.2
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 47,
+        "fields": {
+            "atomic_number": 47,
+            "atomic_symbol": "Ag",
+            "atomic_mass": 107.8682,
+            "density": 10.5,
+            "min_ionization": 1.299,
+            "nu_coll_length": 95.8,
+            "nu_int_length": 161.7,
+            "pi_coll_length": 120.3,
+            "pi_int_length": 189.4,
+            "radiation_length": 8.97
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 48,
+        "fields": {
+            "atomic_number": 48,
+            "atomic_symbol": "Cd",
+            "atomic_mass": 112.414,
+            "density": 8.65,
+            "min_ionization": 1.277,
+            "nu_coll_length": 96.9,
+            "nu_int_length": 163.8,
+            "pi_coll_length": 121.2,
+            "pi_int_length": 191.5,
+            "radiation_length": 9
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 49,
+        "fields": {
+            "atomic_number": 49,
+            "atomic_symbol": "In",
+            "atomic_mass": 114.818,
+            "density": 7.31,
+            "min_ionization": 1.278,
+            "nu_coll_length": 97.4,
+            "nu_int_length": 164.9,
+            "pi_coll_length": 121.7,
+            "pi_int_length": 192.6,
+            "radiation_length": 8.85
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 50,
+        "fields": {
+            "atomic_number": 50,
+            "atomic_symbol": "Sn",
+            "atomic_mass": 118.71,
+            "density": 7.31,
+            "min_ionization": 1.263,
+            "nu_coll_length": 98.2,
+            "nu_int_length": 166.7,
+            "pi_coll_length": 122.5,
+            "pi_int_length": 194.3,
+            "radiation_length": 8.82
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 51,
+        "fields": {
+            "atomic_number": 51,
+            "atomic_symbol": "Sb",
+            "atomic_mass": 121.76,
+            "density": 6.69,
+            "min_ionization": 1.259,
+            "nu_coll_length": 98.9,
+            "nu_int_length": 168,
+            "pi_coll_length": 123.1,
+            "pi_int_length": 195.6,
+            "radiation_length": 8.73
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 52,
+        "fields": {
+            "atomic_number": 52,
+            "atomic_symbol": "Te",
+            "atomic_mass": 127.6,
+            "density": 6.24,
+            "min_ionization": 1.227,
+            "nu_coll_length": 100.1,
+            "nu_int_length": 170.6,
+            "pi_coll_length": 124.2,
+            "pi_int_length": 198.1,
+            "radiation_length": 8.83
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 53,
+        "fields": {
+            "atomic_number": 53,
+            "atomic_symbol": "I",
+            "atomic_mass": 126.90447,
+            "density": 4.93,
+            "min_ionization": 1.263,
+            "nu_coll_length": 100,
+            "nu_int_length": 170.3,
+            "pi_coll_length": 124.1,
+            "pi_int_length": 197.7,
+            "radiation_length": 8.48
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 54,
+        "fields": {
+            "atomic_number": 54,
+            "atomic_symbol": "Xe",
+            "atomic_mass": 131.293,
+            "density": 0.00589,
+            "min_ionization": 1.255,
+            "nu_coll_length": 100.8,
+            "nu_int_length": 172.1,
+            "pi_coll_length": 125,
+            "pi_int_length": 199.6,
+            "radiation_length": 8.48
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 55,
+        "fields": {
+            "atomic_number": 55,
+            "atomic_symbol": "Cs",
+            "atomic_mass": 132.905452,
+            "density": 1.87,
+            "min_ionization": 1.254,
+            "nu_coll_length": 101.2,
+            "nu_int_length": 172.8,
+            "pi_coll_length": 125.3,
+            "pi_int_length": 200.2,
+            "radiation_length": 8.31
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 56,
+        "fields": {
+            "atomic_number": 56,
+            "atomic_symbol": "Ba",
+            "atomic_mass": 137.327,
+            "density": 3.5,
+            "min_ionization": 1.231,
+            "nu_coll_length": 102,
+            "nu_int_length": 174.6,
+            "pi_coll_length": 126.1,
+            "pi_int_length": 202,
+            "radiation_length": 8.31
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 57,
+        "fields": {
+            "atomic_number": 57,
+            "atomic_symbol": "La",
+            "atomic_mass": 138.90547,
+            "density": 6.15,
+            "min_ionization": 1.231,
+            "nu_coll_length": 102.4,
+            "nu_int_length": 175.3,
+            "pi_coll_length": 126.4,
+            "pi_int_length": 202.6,
+            "radiation_length": 8.14
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 58,
+        "fields": {
+            "atomic_number": 58,
+            "atomic_symbol": "Ce",
+            "atomic_mass": 140.116,
+            "density": 6.66,
+            "min_ionization": 1.234,
+            "nu_coll_length": 102.6,
+            "nu_int_length": 175.7,
+            "pi_coll_length": 126.6,
+            "pi_int_length": 203,
+            "radiation_length": 7.96
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 59,
+        "fields": {
+            "atomic_number": 59,
+            "atomic_symbol": "Pr",
+            "atomic_mass": 140.90766,
+            "density": 6.77,
+            "min_ionization": 1.243,
+            "nu_coll_length": 102.7,
+            "nu_int_length": 176.1,
+            "pi_coll_length": 126.7,
+            "pi_int_length": 203.3,
+            "radiation_length": 7.76
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 60,
+        "fields": {
+            "atomic_number": 60,
+            "atomic_symbol": "Nd",
+            "atomic_mass": 144.242,
+            "density": 7,
+            "min_ionization": 1.231,
+            "nu_coll_length": 103.4,
+            "nu_int_length": 177.4,
+            "pi_coll_length": 127.3,
+            "pi_int_length": 204.6,
+            "radiation_length": 7.71
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 61,
+        "fields": {
+            "atomic_number": 61,
+            "atomic_symbol": "Pm",
+            "atomic_mass": 145,
+            "density": 7.26,
+            "min_ionization": 1.24,
+            "nu_coll_length": 103.5,
+            "nu_int_length": 177.7,
+            "pi_coll_length": 127.5,
+            "pi_int_length": 204.9,
+            "radiation_length": 7.51
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 62,
+        "fields": {
+            "atomic_number": 62,
+            "atomic_symbol": "Sm",
+            "atomic_mass": 150.36,
+            "density": 7.52,
+            "min_ionization": 1.21,
+            "nu_coll_length": 104.5,
+            "nu_int_length": 179.8,
+            "pi_coll_length": 128.4,
+            "pi_int_length": 206.9,
+            "radiation_length": 7.57
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 63,
+        "fields": {
+            "atomic_number": 63,
+            "atomic_symbol": "Eu",
+            "atomic_mass": 151.964,
+            "density": 5.24,
+            "min_ionization": 1.219,
+            "nu_coll_length": 104.8,
+            "nu_int_length": 180.4,
+            "pi_coll_length": 128.7,
+            "pi_int_length": 207.5,
+            "radiation_length": 7.44
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 64,
+        "fields": {
+            "atomic_number": 64,
+            "atomic_symbol": "Gd",
+            "atomic_mass": 157.25,
+            "density": 7.9,
+            "min_ionization": 1.188,
+            "nu_coll_length": 105.8,
+            "nu_int_length": 182.4,
+            "pi_coll_length": 129.6,
+            "pi_int_length": 209.5,
+            "radiation_length": 7.48
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 65,
+        "fields": {
+            "atomic_number": 65,
+            "atomic_symbol": "Tb",
+            "atomic_mass": 158.92535,
+            "density": 8.23,
+            "min_ionization": 1.188,
+            "nu_coll_length": 106.1,
+            "nu_int_length": 183,
+            "pi_coll_length": 129.9,
+            "pi_int_length": 210.1,
+            "radiation_length": 7.36
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 66,
+        "fields": {
+            "atomic_number": 66,
+            "atomic_symbol": "Dy",
+            "atomic_mass": 162.5,
+            "density": 8.55,
+            "min_ionization": 1.175,
+            "nu_coll_length": 106.7,
+            "nu_int_length": 184.4,
+            "pi_coll_length": 130.5,
+            "pi_int_length": 211.4,
+            "radiation_length": 7.32
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 67,
+        "fields": {
+            "atomic_number": 67,
+            "atomic_symbol": "Ho",
+            "atomic_mass": 164.93033,
+            "density": 8.8,
+            "min_ionization": 1.17,
+            "nu_coll_length": 107.2,
+            "nu_int_length": 185.3,
+            "pi_coll_length": 130.9,
+            "pi_int_length": 212.3,
+            "radiation_length": 7.23
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 68,
+        "fields": {
+            "atomic_number": 68,
+            "atomic_symbol": "Er",
+            "atomic_mass": 167.259,
+            "density": 9.07,
+            "min_ionization": 1.168,
+            "nu_coll_length": 107.6,
+            "nu_int_length": 186.1,
+            "pi_coll_length": 131.2,
+            "pi_int_length": 213.1,
+            "radiation_length": 7.14
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 69,
+        "fields": {
+            "atomic_number": 69,
+            "atomic_symbol": "Tm",
+            "atomic_mass": 168.93422,
+            "density": 9.32,
+            "min_ionization": 1.17,
+            "nu_coll_length": 107.9,
+            "nu_int_length": 186.7,
+            "pi_coll_length": 131.5,
+            "pi_int_length": 213.6,
+            "radiation_length": 7.03
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 70,
+        "fields": {
+            "atomic_number": 70,
+            "atomic_symbol": "Yb",
+            "atomic_mass": 173.054,
+            "density": 6.97,
+            "min_ionization": 1.159,
+            "nu_coll_length": 108.6,
+            "nu_int_length": 188.2,
+            "pi_coll_length": 132.2,
+            "pi_int_length": 215.1,
+            "radiation_length": 7.02
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 71,
+        "fields": {
+            "atomic_number": 71,
+            "atomic_symbol": "Lu",
+            "atomic_mass": 174.9668,
+            "density": 9.84,
+            "min_ionization": 1.16,
+            "nu_coll_length": 108.9,
+            "nu_int_length": 188.9,
+            "pi_coll_length": 132.5,
+            "pi_int_length": 215.7,
+            "radiation_length": 6.92
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 72,
+        "fields": {
+            "atomic_number": 72,
+            "atomic_symbol": "Hf",
+            "atomic_mass": 178.49,
+            "density": 13.3,
+            "min_ionization": 1.152,
+            "nu_coll_length": 109.5,
+            "nu_int_length": 190.1,
+            "pi_coll_length": 133,
+            "pi_int_length": 216.9,
+            "radiation_length": 6.89
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 73,
+        "fields": {
+            "atomic_number": 73,
+            "atomic_symbol": "Ta",
+            "atomic_mass": 180.94788,
+            "density": 16.6,
+            "min_ionization": 1.149,
+            "nu_coll_length": 109.9,
+            "nu_int_length": 191,
+            "pi_coll_length": 133.4,
+            "pi_int_length": 217.7,
+            "radiation_length": 6.82
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 74,
+        "fields": {
+            "atomic_number": 74,
+            "atomic_symbol": "W",
+            "atomic_mass": 183.84,
+            "density": 19.3,
+            "min_ionization": 1.145,
+            "nu_coll_length": 110.4,
+            "nu_int_length": 191.9,
+            "pi_coll_length": 133.9,
+            "pi_int_length": 218.7,
+            "radiation_length": 6.76
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 75,
+        "fields": {
+            "atomic_number": 75,
+            "atomic_symbol": "Re",
+            "atomic_mass": 186.207,
+            "density": 21,
+            "min_ionization": 1.143,
+            "nu_coll_length": 110.8,
+            "nu_int_length": 192.8,
+            "pi_coll_length": 134.2,
+            "pi_int_length": 219.5,
+            "radiation_length": 6.69
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 76,
+        "fields": {
+            "atomic_number": 76,
+            "atomic_symbol": "Os",
+            "atomic_mass": 190.23,
+            "density": 22.6,
+            "min_ionization": 1.132,
+            "nu_coll_length": 111.4,
+            "nu_int_length": 194.1,
+            "pi_coll_length": 134.8,
+            "pi_int_length": 220.8,
+            "radiation_length": 6.68
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 77,
+        "fields": {
+            "atomic_number": 77,
+            "atomic_symbol": "Ir",
+            "atomic_mass": 192.217,
+            "density": 22.4,
+            "min_ionization": 1.134,
+            "nu_coll_length": 111.7,
+            "nu_int_length": 194.8,
+            "pi_coll_length": 135.1,
+            "pi_int_length": 221.4,
+            "radiation_length": 6.59
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 78,
+        "fields": {
+            "atomic_number": 78,
+            "atomic_symbol": "Pt",
+            "atomic_mass": 195.084,
+            "density": 21.4,
+            "min_ionization": 1.128,
+            "nu_coll_length": 112.2,
+            "nu_int_length": 195.7,
+            "pi_coll_length": 135.6,
+            "pi_int_length": 222.4,
+            "radiation_length": 6.54
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 79,
+        "fields": {
+            "atomic_number": 79,
+            "atomic_symbol": "Au",
+            "atomic_mass": 196.966569,
+            "density": 19.3,
+            "min_ionization": 1.134,
+            "nu_coll_length": 112.5,
+            "nu_int_length": 196.3,
+            "pi_coll_length": 135.8,
+            "pi_int_length": 223,
+            "radiation_length": 6.46
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 80,
+        "fields": {
+            "atomic_number": 80,
+            "atomic_symbol": "Hg",
+            "atomic_mass": 200.592,
+            "density": 13.5,
+            "min_ionization": 1.13,
+            "nu_coll_length": 113.1,
+            "nu_int_length": 197.5,
+            "pi_coll_length": 136.4,
+            "pi_int_length": 224.1,
+            "radiation_length": 6.44
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 81,
+        "fields": {
+            "atomic_number": 81,
+            "atomic_symbol": "Tl",
+            "atomic_mass": 204.3835,
+            "density": 11.9,
+            "min_ionization": 1.125,
+            "nu_coll_length": 113.6,
+            "nu_int_length": 198.7,
+            "pi_coll_length": 136.9,
+            "pi_int_length": 225.3,
+            "radiation_length": 6.42
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 82,
+        "fields": {
+            "atomic_number": 82,
+            "atomic_symbol": "Pb",
+            "atomic_mass": 207.2,
+            "density": 11.4,
+            "min_ionization": 1.122,
+            "nu_coll_length": 114.1,
+            "nu_int_length": 199.6,
+            "pi_coll_length": 137.3,
+            "pi_int_length": 226.2,
+            "radiation_length": 6.37
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 83,
+        "fields": {
+            "atomic_number": 83,
+            "atomic_symbol": "Bi",
+            "atomic_mass": 208.9804,
+            "density": 9.75,
+            "min_ionization": 1.128,
+            "nu_coll_length": 114.3,
+            "nu_int_length": 200.2,
+            "pi_coll_length": 137.6,
+            "pi_int_length": 226.7,
+            "radiation_length": 6.29
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 84,
+        "fields": {
+            "atomic_number": 84,
+            "atomic_symbol": "Po",
+            "atomic_mass": 209,
+            "density": 9.32,
+            "min_ionization": 1.141,
+            "nu_coll_length": 114.3,
+            "nu_int_length": 200.2,
+            "pi_coll_length": 137.6,
+            "pi_int_length": 226.7,
+            "radiation_length": 6.16
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 85,
+        "fields": {
+            "atomic_number": 85,
+            "atomic_symbol": "At",
+            "atomic_mass": 210,
+            "density": 7,
+            "min_ionization": 1.16,
+            "nu_coll_length": 114.5,
+            "nu_int_length": 200.5,
+            "pi_coll_length": 137.7,
+            "pi_int_length": 227,
+            "radiation_length": 6.07
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 86,
+        "fields": {
+            "atomic_number": 86,
+            "atomic_symbol": "Rn",
+            "atomic_mass": 222,
+            "density": 0.00973,
+            "min_ionization": 1.116,
+            "nu_coll_length": 116.3,
+            "nu_int_length": 204.3,
+            "pi_coll_length": 139.4,
+            "pi_int_length": 230.7,
+            "radiation_length": 6.28
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 87,
+        "fields": {
+            "atomic_number": 87,
+            "atomic_symbol": "Fr",
+            "atomic_mass": 223,
+            "density": 1.87,
+            "min_ionization": 1.118,
+            "nu_coll_length": 116.4,
+            "nu_int_length": 204.6,
+            "pi_coll_length": 139.5,
+            "pi_int_length": 230.9,
+            "radiation_length": 6.19
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 88,
+        "fields": {
+            "atomic_number": 88,
+            "atomic_symbol": "Ra",
+            "atomic_mass": 226,
+            "density": 5,
+            "min_ionization": 1.111,
+            "nu_coll_length": 116.9,
+            "nu_int_length": 205.5,
+            "pi_coll_length": 139.9,
+            "pi_int_length": 231.8,
+            "radiation_length": 6.15
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 89,
+        "fields": {
+            "atomic_number": 89,
+            "atomic_symbol": "Ac",
+            "atomic_mass": 227,
+            "density": 10.1,
+            "min_ionization": 1.112,
+            "nu_coll_length": 117,
+            "nu_int_length": 205.8,
+            "pi_coll_length": 140.1,
+            "pi_int_length": 232.1,
+            "radiation_length": 6.06
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 90,
+        "fields": {
+            "atomic_number": 90,
+            "atomic_symbol": "Th",
+            "atomic_mass": 232.0377,
+            "density": 11.7,
+            "min_ionization": 1.098,
+            "nu_coll_length": 117.7,
+            "nu_int_length": 207.3,
+            "pi_coll_length": 140.7,
+            "pi_int_length": 233.6,
+            "radiation_length": 6.07
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 91,
+        "fields": {
+            "atomic_number": 91,
+            "atomic_symbol": "Pa",
+            "atomic_mass": 231.03588,
+            "density": 15.4,
+            "min_ionization": 1.107,
+            "nu_coll_length": 117.6,
+            "nu_int_length": 207,
+            "pi_coll_length": 140.6,
+            "pi_int_length": 233.3,
+            "radiation_length": 5.93
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 92,
+        "fields": {
+            "atomic_number": 92,
+            "atomic_symbol": "U",
+            "atomic_mass": 238.02891,
+            "density": 19,
+            "min_ionization": 1.081,
+            "nu_coll_length": 118.6,
+            "nu_int_length": 209,
+            "pi_coll_length": 141.5,
+            "pi_int_length": 235.3,
+            "radiation_length": 6
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 93,
+        "fields": {
+            "atomic_number": 93,
+            "atomic_symbol": "Np",
+            "atomic_mass": 237,
+            "density": 20.2,
+            "min_ionization": 1.095,
+            "nu_coll_length": 118.5,
+            "nu_int_length": 208.7,
+            "pi_coll_length": 141.4,
+            "pi_int_length": 235,
+            "radiation_length": 5.87
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 94,
+        "fields": {
+            "atomic_number": 94,
+            "atomic_symbol": "Pu",
+            "atomic_mass": 244,
+            "density": 19.8,
+            "min_ionization": 1.071,
+            "nu_coll_length": 119.4,
+            "nu_int_length": 210.8,
+            "pi_coll_length": 142.3,
+            "pi_int_length": 237,
+            "radiation_length": 5.93
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 95,
+        "fields": {
+            "atomic_number": 95,
+            "atomic_symbol": "Am",
+            "atomic_mass": 243,
+            "density": 13.7,
+            "min_ionization": 1.089,
+            "nu_coll_length": 119.3,
+            "nu_int_length": 210.5,
+            "pi_coll_length": 142.2,
+            "pi_int_length": 236.7,
+            "radiation_length": 5.8
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 96,
+        "fields": {
+            "atomic_number": 96,
+            "atomic_symbol": "Cm",
+            "atomic_mass": 247,
+            "density": 13.5,
+            "min_ionization": 1.082,
+            "nu_coll_length": 119.9,
+            "nu_int_length": 211.6,
+            "pi_coll_length": 142.7,
+            "pi_int_length": 237.8,
+            "radiation_length": 5.79
+        }
+    },
+    {
+        "model": "samples_manager.element",
+        "pk": 97,
+        "fields": {
+            "atomic_number": 97,
+            "atomic_symbol": "Bk",
+            "atomic_mass": 247,
+            "density": 14,
+            "min_ionization": 1.085,
+            "nu_coll_length": 119.9,
+            "nu_int_length": 211.6,
+            "pi_coll_length": 142.7,
+            "pi_int_length": 237.8,
+            "radiation_length": 5.69
+        }
+    }
+]

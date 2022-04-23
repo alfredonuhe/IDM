@@ -1,0 +1,97 @@
+{% extends 'samples_manager/base_details.html' %}
+{% load custom_filters %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<a class='section' href='{% url "samples_manager:boxes_list" %}'>Boxes</a>
+<div class='divider'> / </div>
+<div class='active section'>Details {{ box.box_id }}</div>
+{% endblock %}
+
+{% block partial_template %}
+<div class='ui two column grid'>
+    <div class='column'>
+        <div class='ui segment'>
+            <div class='ui divided selection list'>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        ID
+                    </div>
+                    {{box.box_id}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Responsible
+                    </div>
+                    {{box.responsible.email}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Location
+                    </div>
+                    {{box.current_location}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Dimensions
+                    </div>
+                    {{box.width|num_notation:'2d'}}x{{box.height|num_notation:'2d'}}x{{box.length|num_notation:'2d'}} (wxhxl cm)
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Weight
+                    </div>
+                    {{box.weight|num_notation:'2d'}} kg
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Description
+                    </div>
+                    {{box.description}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='column'>
+        <div class='ui segment'>
+            <div class='ui divided selection list'>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Items
+                    </div>
+                    {% for item in items %}
+                    <a href='{{item.url}}'>{{item.id}}</a>&emsp;
+                    {% empty %}
+                        No items
+                    {% endfor %}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Created at
+                    </div>
+                    {{box.created_at}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Updated at
+                    </div>
+                    {{box.updated_at}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Created by
+                    </div>
+                    {{box.created_by}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Updated by
+                    </div>
+                    {{box.updated_by}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

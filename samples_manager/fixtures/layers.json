@@ -1,0 +1,82 @@
+[
+    {
+        "model": "samples_manager.layer",
+        "pk": 1,
+        "fields": {
+            "name": "L0",
+            "length": "0.000101",
+            "compound_type": 2,
+            "sample": 1
+        }
+    },
+    {
+        "model": "samples_manager.layer",
+        "pk": 2,
+        "fields": {
+            "name": "L1",
+            "length": "0.000101",
+            "compound_type": 2,
+            "sample": 2
+        }
+    },
+    {
+        "model": "samples_manager.layer",
+        "pk": 3,
+        "fields": {
+            "name": "L0",
+            "length": "0.000101",
+            "compound_type": 3,
+            "sample": 3
+        }
+    },
+    {
+        "model": "samples_manager.layer",
+        "pk": 4,
+        "fields": {
+            "name": "L0",
+            "length": "0.000101",
+            "compound_type": 4,
+            "sample": 4
+        }
+    },
+    {
+        "model": "samples_manager.layer",
+        "pk": 5,
+        "fields": {
+            "name": "L0",
+            "length": "0.000101",
+            "compound_type": 5,
+            "sample": 5
+        }
+    },
+    {
+        "model": "samples_manager.layer",
+        "pk": 6,
+        "fields": {
+            "name": "L0",
+            "length": "0.000101",
+            "compound_type": 6,
+            "sample": 6
+        }
+    },
+    {
+        "model": "samples_manager.layer",
+        "pk": 7,
+        "fields": {
+            "name": "L0",
+            "length": "0.000101",
+            "compound_type": 7,
+            "sample": 1
+        }
+    },
+    {
+        "model": "samples_manager.layer",
+        "pk": 8,
+        "fields": {
+            "name": "L0",
+            "length": "0.000101",
+            "compound_type": 8,
+            "sample": 2
+        }
+    }
+]

@@ -1,0 +1,62 @@
+[
+    {
+        "model": "samples_manager.occupancy",
+        "pk": 1,
+        "fields": {
+            "radiation_length_occupancy": 0.01,
+            "nu_coll_length_occupancy": 0.01,
+            "nu_int_length_occupancy": 0.01,
+            "sample": 1
+        }
+    },
+    {
+        "model": "samples_manager.occupancy",
+        "pk": 2,
+        "fields": {
+            "radiation_length_occupancy": 0.01,
+            "nu_coll_length_occupancy": 0.01,
+            "nu_int_length_occupancy": 0.01,
+            "sample": 2
+        }
+    },
+    {
+        "model": "samples_manager.occupancy",
+        "pk": 3,
+        "fields": {
+            "radiation_length_occupancy": 0.01,
+            "nu_coll_length_occupancy": 0.01,
+            "nu_int_length_occupancy": 0.01,
+            "sample": 3
+        }
+    },
+    {
+        "model": "samples_manager.occupancy",
+        "pk": 4,
+        "fields": {
+            "radiation_length_occupancy": 0.01,
+            "nu_coll_length_occupancy": 0.01,
+            "nu_int_length_occupancy": 0.01,
+            "sample": 4
+        }
+    },
+    {
+        "model": "samples_manager.occupancy",
+        "pk": 5,
+        "fields": {
+            "radiation_length_occupancy": 0.01,
+            "nu_coll_length_occupancy": 0.01,
+            "nu_int_length_occupancy": 0.01,
+            "sample": 5
+        }
+    },
+    {
+        "model": "samples_manager.occupancy",
+        "pk": 6,
+        "fields": {
+            "radiation_length_occupancy": 0.01,
+            "nu_coll_length_occupancy": 0.01,
+            "nu_int_length_occupancy": 0.01,
+            "sample": 6
+        }
+    }
+]

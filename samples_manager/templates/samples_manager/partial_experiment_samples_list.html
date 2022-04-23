@@ -1,0 +1,60 @@
+{% load static %}
+{% load custom_filters %}
+{% if pagination_data.double_pagination %}
+<div id='partial-template-pagination-top'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+{% endif %}
+<div id='partial-template-table'>
+    <table class='ui center aligned sortable celled table' id='data-table'>
+        <thead>
+            <tr>
+                <th class='sorttable_nosort'><input name='select_all' value='1'
+                     id='all-checkbox' class='checkbox' type='checkbox' /></th>
+                <th>Sample Name</th>
+                <th>Sample ID</th>
+                <th>Last update</th>
+                <th>Category</th>
+                <th>Requested fluence</th>
+                <th>Radiation / Nu. Coll. / Nu. Int.<br>Length Occupancy (%)</th>
+                <th>Last updated by</th>
+                <th>Box</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sample in samples %}
+            <tr>
+                <td><input type='checkbox' class='checkbox' id='sample-{{sample.id}}' name='checks[]'
+                    value='{{sample.id}}'>
+                </td>
+                <td>{{sample.name}}</td>
+                {%if sample.set_id %}
+                <td>{{sample.set_id}}</td>
+                {% else %}
+                <td>Not assigned</td>
+                {% endif %}
+                <td>{{sample.updated_at|date:"d/m/Y"}}</td>
+                <td>{{sample.category}}</td>
+                <td>{{sample.req_fluence.req_fluence|num_notation:'4e'}} {{sample.experiment.irradiation_type|lower}}/cm<sup>2</sup></td>
+                <td>{{sample.radiation_length_occupancy|num_notation:'3d'}} /
+                    {{sample.nu_coll_length_occupancy|num_notation:'3d'}} /
+                    {{sample.nu_int_length_occupancy|num_notation:'3d'}}</td>
+                <td>{{sample.updated_by}}</td>
+                {%if sample.box.box_id %}
+                <td><a href='{% url "samples_manager:box_details" sample.box.id %}'>{{sample.box.box_id}}</a></td>
+                {% else %}
+                <td>Not assigned</td>
+                {% endif %}
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan='10' class='text-center'>There are no samples</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id='partial-template-pagination-bottom'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+<script type='text/javascript' src='{% static "js/checkboxes.js" %}'></script>

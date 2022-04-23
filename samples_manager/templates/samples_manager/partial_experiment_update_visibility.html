@@ -1,0 +1,29 @@
+<meta charset='UTF-8'>
+{% load static %}
+<form method='post' action='{{ form_tag_action }}'
+    class='ui form js-submit-experiment-form'>
+    {% csrf_token %}
+    <div class='ui centered grid container'>
+        <div class='ui text container'>
+            <div class='ui center aligned segment container '>
+                <div class='ui centered header'>
+                    <h3>Experiment Visibility</h3>
+                </div>
+                {% include 'samples_manager/form_collapsible_text.html' %}
+                {% for field in form %}
+                {% include 'samples_manager/form_field.html' %}
+                {% endfor %}
+                <div class='two ui buttons actions'>
+                    <button type='button' class='ui deny medium button'>Cancel</button>
+                    <button type='submit' class='ui positive medium button submit'>Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        activateSearchSelectFields();
+        activatePopups();
+    });
+</script>

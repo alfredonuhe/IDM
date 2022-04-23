@@ -1,0 +1,50 @@
+[
+    {
+        "model": "samples_manager.material",
+        "pk": 1,
+        "fields": {
+            "material": "silicon",
+            "experiment": 1
+        }
+    },
+    {
+        "model": "samples_manager.material",
+        "pk": 2,
+        "fields": {
+            "material": "silicon",
+            "experiment": 2
+        }
+    },
+    {
+        "model": "samples_manager.material",
+        "pk": 3,
+        "fields": {
+            "material": "silicon",
+            "experiment": 3
+        }
+    },
+    {
+        "model": "samples_manager.material",
+        "pk": 4,
+        "fields": {
+            "material": "silicon",
+            "experiment": 4
+        }
+    },
+    {
+        "model": "samples_manager.material",
+        "pk": 5,
+        "fields": {
+            "material": "silicon",
+            "experiment": 5
+        }
+    },
+    {
+        "model": "samples_manager.material",
+        "pk": 6,
+        "fields": {
+            "material": "silicon",
+            "experiment": 6
+        }
+    }
+]

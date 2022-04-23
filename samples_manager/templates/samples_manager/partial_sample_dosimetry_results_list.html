@@ -1,0 +1,58 @@
+{% load static %}
+{% load custom_filters %}
+<div id='partial-template-table'>
+    <table class='ui center aligned sortable celled table very compact striped' id='fluences-table'>
+        <thead>
+            <tr>
+                <th>Dosimeter dimensions (mm<sup>2</sup>)</th>
+                <th>Total accumulated fluence</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fluence in sample_fluences %}
+            <tr>
+                <td>{{fluence.Fluence_data.height|num_notation:'4d'}}&#10005;{{fluence.Fluence_data.width|num_notation:'4d'}} mm<sup>2</sup></td>
+                <td>{{fluence.Fluence_data.estimated_fluence|num_notation:'4e'}}
+                    {{fluence.Sample.experiment.irradiation_type}}/cm<sup>2</sup></td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan='10'>There are no results</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <table class="ui center aligned sortable celled table very compact striped" id="data-table">
+        <thead>
+            <tr>
+                <th>Dosimeter</th>
+                <th>Dimensions (mm<sup>2</sup>)</th>
+                <th>Date In</th>
+                <th>Date Out</th>
+                <th>SEC</th>
+                <th>Accumulated fluence</th>
+                <th>Error(%)</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.dosimeter.dos_id }}</td>
+                <td>{{ result.dosimeter.width}}&#10005;{{ result.dosimeter.height}} </td>
+                <td>{{ result.date_in|date:"d/m/Y"}} {{ result.date_in|time:"H:i"}}</td>
+                <td>{{ result.date_out|date:"d/m/Y"}} {{ result.date_out|time:"H:i"}}</td>
+                <td>{{ result.sec|stringformat:".2e" }}</td>
+                <td>{{ result.estimated_fluence|stringformat:".2e" }}</td>
+                <td>{{ result.fluence_error}}</td>
+                <td>{{ result.comments }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                <td colspan="10">There are no results</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script type='text/javascript' src='{% static "js/checkboxes.js" %}'></script>

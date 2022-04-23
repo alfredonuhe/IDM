@@ -1,0 +1,62 @@
+[
+    {
+        "model": "samples_manager.passivestandardcategory",
+        "pk": 1,
+        "fields": {
+            "irradiation_area_5x5": true,
+            "irradiation_area_10x10": true,
+            "irradiation_area_20x20": false,
+            "experiment": 1
+        }
+    },
+    {
+        "model": "samples_manager.passivecustomcategory",
+        "pk": 1,
+        "fields": {
+            "passive_category_type": "Room temperature",
+            "passive_irradiation_area": "25x25 mm²",
+            "passive_modus_operandi": "Modus operandi.",
+            "experiment": 2
+        }
+    },
+    {
+        "model": "samples_manager.activecategory",
+        "pk": 1,
+        "fields": {
+            "active_category_type": "Room temperature",
+            "active_irradiation_area": "25x25 mm²",
+            "active_modus_operandi": "Modus operandi.",
+            "experiment": 3
+        }
+    },
+    {
+        "model": "samples_manager.passivestandardcategory",
+        "pk": 2,
+        "fields": {
+            "irradiation_area_5x5": true,
+            "irradiation_area_10x10": true,
+            "irradiation_area_20x20": false,
+            "experiment": 4
+        }
+    },
+    {
+        "model": "samples_manager.passivecustomcategory",
+        "pk": 2,
+        "fields": {
+            "passive_category_type": "Room temperature",
+            "passive_irradiation_area": "25x25 mm²",
+            "passive_modus_operandi": "Modus operandi.",
+            "experiment": 5
+        }
+    },
+    {
+        "model": "samples_manager.activecategory",
+        "pk": 2,
+        "fields": {
+            "active_category_type": "Room temperature",
+            "active_irradiation_area": "25x25 mm²",
+            "active_modus_operandi": "Modus operandi.",
+            "experiment": 6
+        }
+    }
+]

@@ -1,0 +1,84 @@
+{% load static %}
+{% load custom_filters %}
+{% if pagination_data.double_pagination %}
+<div id='partial-template-pagination-top'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+{% endif %}
+<div id='partial-template-table'>
+    <table class='ui center aligned sortable celled table' id='data-table'>
+        <thead>
+            <tr>
+                <th class='sorttable_nosort'><input name='select_all' value='1'
+                     id='all-checkbox' class='checkbox' type='checkbox' /></th>
+                <th>ID</th>
+                <th>Experiment<br>title</th>
+                <th>Availability</th>
+                <th>No. registered/<br>declared samples</th>
+                <th>Radiation/<br>Nu.Coll.<br>Length<br>Occupancy<br>(%)</th>
+                <th>No.<br>Users</th>
+                <th>Responsible<br>person</th>
+                <th>Visibility</th>
+                <th>Status</th>
+                <!-- <th>Actions</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for experiment in experiment_data.experiments %}
+            <tr>
+                <td><input type='checkbox' class='checkbox' id='{{sample.id}}' name='checks[]'
+                        value='{{experiment.id}}'>
+                </td>
+                <td>{{experiment.id}}</td>
+                <td>{{experiment.title}}<br>(
+                    {%if experiment.irradiation_type == 'Protons' %}
+                    <span title='Protons' style=' color: red'>p</span>
+                    {%elif experiment.irradiation_type == 'Heavy ions' %}
+                    <span title='Heavy Ions' style=' color: blue'><i>HI</i></span>
+                    {% else %}
+                    <span title='Pions' style=' color: green'><i>Pi</i></span>
+                    {% endif %}
+                    )
+                </td>
+                <td>{{experiment.availability|date:"d/m/Y"}}</td>
+                <td>{{experiment.number_registered_samples}}/{{ experiment.number_samples}}</td>
+                <td>{{experiment.radiation_length_occupancy|num_notation:'3d'}}<br>{{experiment.nu_coll_length_occupancy|num_notation:'3d'}}
+                </td>
+                <td>{{experiment.number_users}}</td>
+                {%if experiment.responsible.surname %}
+                <td>{{experiment.responsible.name}} {{experiment.responsible.surname}}</td>
+                {% else %}
+                <td>{{experiment.responsible}} </td>
+                {% endif %}
+                {% if experiment.public_experiment %}
+                <td>Public</td>
+                {% else %}
+                <td>Private</td>
+                {% endif %}
+                <td>{{experiment.status}}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan='10'>There are no experiments</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>{{experiment_data.total_registered_samples}}/{{experiment_data.total_declared_samples}}</b></td>
+                <td><b>{{experiment_data.total_experiments_radiation_length_occupancy}}</b> /
+                    <b>{{experiment_data.total_experiments_nu_coll_length_occupancy}}</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div id='partial-template-pagination-bottom'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+<script type='text/javascript' src='{% static "js/checkboxes.js" %}'></script>

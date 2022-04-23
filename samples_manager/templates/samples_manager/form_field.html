@@ -1,0 +1,18 @@
+{% load widget_tweaks %}
+<div class='field form-group {% if field.errors and render_with_errors %}has-error{% endif %} {% if field.field.parent_class %}{{ field.field.parent_class }}{% endif %}'>
+    <label for='{{ field.id_for_label }}'>
+        {{ field.label }}
+        {% if field.field.required %}
+            <span class='required'> *</span>
+        {% endif %}
+        {% if field.help_text %}
+        <i class='info circle icon info-popup' data-html="{{ field.help_text }}" data-variation="wide"></i>
+        {% endif %}
+    </label>
+    {% render_field field class+='form-control' %}
+    {% if render_with_errors %}
+    {% for error in field.errors %}
+    <span class='ui pointing basic red label'>{{ error }}</span>
+    {% endfor %}
+    {% endif %}
+</div>

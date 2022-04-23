@@ -1,0 +1,38 @@
+{% load static %}
+{% if pagination_data.double_pagination %}
+<div id='partial-template-pagination-top'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+{% endif %}
+<div id='partial-template-table'>
+    <table id='data-table' class='ui center aligned sortable celled table'>
+        <thead>
+            <tr>
+                <th class='sorttable_nosort'><input name='select_all' value='1'
+                    id='all-checkbox' class='checkbox' type='checkbox' /></th>
+                <th>Name</th>
+                <th>Density (g/cm³)</th>
+                <th>No. associated samples</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for compound_data in compounds_data %}
+            <tr>
+                <td><input type='checkbox' class='checkbox' id='compound-{{compound_data.compound.id}}' 
+                    name='checks[]' value='{{compound_data.compound.id}}'></td>
+                <td>{{ compound_data.compound.name }}</td>
+                <td>{{ compound_data.compound.density }}</td>
+                <td>{{ compound_data.compound.num_associated_samples}}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan='8' class='text-center'>There are no users</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id='partial-template-pagination-bottom'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+<script type='text/javascript' src='{% static "js/checkboxes.js" %}'></script>

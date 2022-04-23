@@ -1,0 +1,15 @@
+<form method='post' data-url='{% url "samples_manager:fluence_factors_list" %}'
+    action='{% url "samples_manager:fluence_factor_delete" %}' class='ui form js-submit-fluence-factor-form js-fluence-factor-update-form'>
+    {% csrf_token %}
+    <div class='ui center aligned segment container'>
+        <div class='ui centered header'>
+            <h3>Confirm fluence factor deletion</h3>
+        </div>
+        <p>Are you sure you want to perform this action? It is irreversible.</p>
+        {% include 'samples_manager/form_collapsible_text.html' %}
+        <div class='two ui buttons actions'>
+            <button type='button' class='ui deny medium button'>Cancel</button>
+            <button type='submit' class='ui negative medium button submit'>Delete</button>
+        </div>
+    </div>
+</form>

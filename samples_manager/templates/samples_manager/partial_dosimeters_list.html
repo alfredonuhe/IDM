@@ -1,0 +1,57 @@
+{% load static %}
+{% load custom_filters %}
+{% if pagination_data.double_pagination %}
+<div id='partial-template-pagination-top'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+{% endif %}
+<div id='partial-template-table'>
+    <table class='ui center aligned sortable celled table' id='data-table'>
+        <thead>
+            <tr>
+                <th class='sorttable_nosort'><input name='select_all' value='1' id='all-checkbox'
+                    type='checkbox' /></th>
+                <th>Dosimeter ID</th>
+                <th>Last Update</th>
+                <th>Height (mm)</th>
+                <th>Width (mm)</th>
+                <th>Length (mm)</th>
+                <th>Weight (g)</th>
+                <th>Box</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dosimeter in dosimeters %}
+            <tr>
+                <td><input type='checkbox' class='checkbox'  id='dosimeter-{{dosimeter.id}}' name='checks[]'
+                    value='{{dosimeter.id}}'></td>
+                {%if dosimeter.dos_id %}
+                <td>{{dosimeter.dos_id}}</td>
+                {% else %}
+                <td>Not assigned</td>
+                {% endif %}
+                <td>{{ dosimeter.updated_at|date:"d/m/Y"}}</td>
+                <td>{% if dosimeter.height %}{{ dosimeter.height|num_notation:'4d'}}{% endif %}</td>
+                <td>{% if dosimeter.width %}{{ dosimeter.width|num_notation:'4d'}}{% endif %}</td>
+                <td>{% if dosimeter.length %}{{ dosimeter.length|num_notation:'4d'}}{% endif %}</td>
+                <td>{% if dosimeter.weight %}{{ dosimeter.weight|num_notation:'4d'}}{% endif %}</td>
+                {%if dosimeter.box.box_id %}
+                <td><a href='{% url "samples_manager:box_details" dosimeter.box.id %}'>{{ dosimeter.box.box_id }}</a></td>
+                {% else %}
+                <td>Not assigned</td>
+                {% endif %}
+                <td>{{ dosimeter.status }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan='8'>No dosimeter</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id='partial-template-pagination-bottom'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+<script type='text/javascript' src='{% static "js/checkboxes.js" %}'></script>

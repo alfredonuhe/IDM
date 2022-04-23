@@ -1,0 +1,100 @@
+{% load widget_tweaks %}
+{% load static %}
+<form method='post' action='{{ form_tag_action }}'
+    class='ui form js-submit-sample-form js-sample-{{ form_action|lower }}-form'>
+    {% csrf_token %}
+    <div class='ui centered grid container'>
+        <div class='ui text container'>
+            <div class='three ui buttons center aligned grid container' style='margin:20px;'>
+                <div class='ui big basic blue button{% if current_page != 1 %} unactive-tab{% endif %}' id='step-tab-1'>
+                    <div class='content'>Step 1</div>
+                </div>
+                <div class='ui big blue basic button{% if current_page != 2 %} unactive-tab{% endif %}' id='step-tab-2'>
+                    <div class='content'>Step 2</div>
+                </div>
+                <div class='ui big blue basic button{% if current_page != 3 %} unactive-tab{% endif %}' id='step-tab-3'>
+                    <div class='content'>Step 3</div>
+                </div>
+            </div>
+            <div id='steps'>
+                <div id='step-1' class='transition {% if current_page == 1 %}visible{% else %}hidden{% endif %}'>
+                    <div class='ui center aligned segment container'>
+                        <div class='ui centered header'>
+                            <h3>{{ form_action }} Sample</h3>
+                            <p class='required form-description-area'>* required field</p>
+                        </div>
+                        {% for field in form1 %}
+                        {% include 'samples_manager/form_field.html' %}
+                        {% endfor %}
+                        <div class='two ui buttons actions'>
+                            <button type='button' class='ui deny medium button'>Cancel</button>
+                            <button type='button' class='ui  inverted blue medium button next-step'>Next</button>
+                        </div>
+                    </div>
+                </div>
+                <div id='step-2' class='transition {% if current_page == 2 %}visible{% else %}hidden{% endif %}'>
+                    <div class='ui center aligned segment container'>
+                        <div class='image content'>
+                            <div class='ui medium image'>
+                                <img src='{% static "images/layers.png" %}' alt='Layer' width='100%'>
+                            </div>
+                        </div>
+                        {% for field in form2 %}
+                        {% include 'samples_manager/form_field.html' %}
+                        {% endfor %}
+                        <button type='button' id='create-compound' class='ui blue button js-load-compound-form js-create-compound'
+                            data-url='{% url "samples_manager:compound_create" %}'>
+                            <i class='plus icon'></i>Add new compound
+                        </button>
+                        <table class='ui celled table formset_table layer_formset'>
+                            {{ layer_formset.management_form }}
+                            {% for form in layer_formset.forms %}
+                            {% include 'samples_manager/formset_table_head.html' %}
+                            {% endfor %}
+                            <tbody>
+                                {% for form in layer_formset.forms %}
+                                {% include 'samples_manager/formset_table_body_row.html' %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <div class='two ui buttons actions'>
+                            <button type='button' class='ui  inverted blue  medium button prev-step'>Previous</button>
+                            <button type='button' class='ui  inverted blue  medium button next-step'>Next</button>
+                        </div>
+                    </div>
+                </div>
+                <div id='step-3' class='transition {% if current_page == 3 %}visible{% else %}hidden{% endif %}'>
+                    <div class='ui center aligned segment container'>
+                        {% for field in form3 %}
+                        {% include 'samples_manager/form_field.html' %}
+                        {% endfor %}
+                        <div class='two ui buttons actions'>
+                            <button type='button' class='ui inverted blue medium button prev-step'>Previous</button>
+                            <button type='submit' class='ui positive medium button submit'>Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script type='text/javascript' src='{% static "js/jquery.formset.js" %}'></script>
+<script type='text/javascript' src='{% static "js/steps.js" %}'></script>
+<script type='text/javascript'>
+    $(document).ready(function () {
+        $('.formset_table.layer_formset .formset_row').formset({
+            addText: 'Add Layer',
+            deleteText: '×',
+            prefix: '{{ layer_formset.prefix }}',
+            formCssClass: 'dynamic-formset-{{ layer_formset.prefix }}',
+            addCssClass: '{{ layer_formset.prefix }}-add-row',
+            deleteCssClass: '{{ layer_formset.prefix }}-delete-row',
+            added: activateSearchSelectFields
+        });
+        $('#id_set_id').click(function () {
+            alert('Please, make sure you already have an assigned SET-ID from IRRAD or inforEAM.')
+        });
+        activateSearchSelectFields();
+        activatePopups(500);
+    });
+</script>

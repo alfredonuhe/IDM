@@ -1,0 +1,49 @@
+{% extends 'samples_manager/base_all_tab_list.html' %}
+{% load static %}
+
+{% block modals %}
+<!-- THE MODAL WE WILL BE USING -->
+<div class='ui modal' id='modal-compound'>
+    <i class='close icon'></i>
+    <div class='content modal-content'>
+    </div>
+</div>
+{% endblock %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<div class='active section'>Compounds</div>
+{% endblock %}
+
+{% block actions %}
+<div class='two wide column'>
+    <button type='button' class='ui blue tiny button action-button js-load-compound-form' 
+        id='compound-create' title='Create compound'
+        data-url='{% url "samples_manager:compound_create" %}'>
+        <i class='plus icon'></i>Create
+    </button>
+</div>
+<div class='two wide column'>
+    <button type='button' class='ui tiny button action-button js-load-compound-form single-action' 
+        id='compound-update' title='Update compound'
+        data-url='{% url "samples_manager:compound_update" %}'>
+        <i class='pencil icon'></i>Update
+    </button>
+</div>
+<div class='two wide column'>
+    <button type='button' class='ui red tiny button action-button js-load-compound-form group-action' 
+        id='compound-delete' title='Delete compound'
+        data-url='{% url "samples_manager:compound_delete" %}'>
+        <i class='trash icon'></i>Delete
+    </button>
+</div>
+{% endblock %}
+
+{% block partial_template %}
+{% include 'samples_manager/partial_compounds_list.html' %}
+{% endblock %}
+
+{% block javascript %}
+<script type='text/javascript' src='{% static "js/compounds.js" %}'></script>
+{% endblock %}

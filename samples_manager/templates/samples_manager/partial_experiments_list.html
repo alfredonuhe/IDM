@@ -1,0 +1,50 @@
+{% load static %}
+{% if pagination_data.double_pagination %}
+<div id='partial-template-pagination-top'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+{% endif %}
+<div id='partial-template-table'>
+    <table class='ui center aligned sortable celled table' id='data-table'>
+        <thead>
+            <tr>
+                <th class='sorttable_nosort'><input name='select_all' value='1'
+                    id='all-checkbox' class='checkbox' type='checkbox' /></th>
+                <th>Last update </th>
+                <th>Experiment title</th>
+                <th>Availability</th>
+                <th>No. registered/<br>declared samples</th>
+                <th>No. users</th>
+                <th>Visibility</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for experiment in experiment_data.experiments %}
+            <tr>
+                <td><input type='checkbox' class='checkbox' id='experiment-{{experiment.id}}' name='checks[]'
+                    value='{{experiment.id}}'></td>
+                <td>{{experiment.updated_at|date:"d/m/Y"}}</td>
+                <td>{{experiment.title}}</td>
+                <td>{{experiment.availability|date:"d/m/Y"}}</td>
+                <td>{{experiment.number_registered_samples}}/{{experiment.number_samples}}</td>
+                <td>{{experiment.users.count|add:"1"}}</td>
+                {% if experiment.public_experiment %}
+                <td>Public</td>
+                {% else %}
+                <td>Private</td>
+                {% endif %}
+                <td>{{experiment.status}}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan='10'>There are no experiments</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id='partial-template-pagination-bottom'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+<script type='text/javascript' src='{% static "js/checkboxes.js" %}'></script>

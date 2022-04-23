@@ -1,0 +1,41 @@
+{% load static %}
+{% load widget_tweaks %}
+<form method='post' action='{% url "samples_manager:box_items_add" box.id %}' class='ui form js-submit-box-item-form'>
+    {% csrf_token %}
+    <div class='ui center aligned segment container '>
+        <div class='ui centered header'>
+            <h3>Add items to box</h3>
+        </div>
+        <table class='ui celled table formset_table'>
+            {{ formset.management_form }}
+            {% for form in formset.forms %}
+            {% include 'samples_manager/formset_table_head.html' %}
+            {% endfor %}
+            <tbody>
+                {% for form in formset.forms %}
+                {% include 'samples_manager/formset_table_body_row.html' %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class='two ui buttons actions'>
+            <button type='button' class='ui deny medium button'>Cancel</button>
+            <button type='submit' class='ui positive medium button submit'>Submit</button>
+        </div>
+    </div>
+</form>
+<script type='text/javascript' src='{% static "js/jquery.formset.js" %}'></script>
+<script>
+    $(document).ready(function () {
+        $('.formset_row').formset({
+            addText: 'Add',
+            deleteText: '×',
+            prefix: '{{ formset.prefix }}',
+            formCssClass: 'dynamic-formset-{{ formset.prefix }}',
+            addCssClass: '{{ formset.prefix }}-add-row',
+            deleteCssClass: '{{ formset.prefix }}-delete-row',
+            added: activateSearchSelectFields
+        });
+        activateSearchSelectFields();
+        activatePopups();
+    });
+</script>

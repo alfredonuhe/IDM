@@ -1,0 +1,92 @@
+[
+    {
+        "model": "samples_manager.compoundelement",
+        "pk": 1,
+        "fields": {
+            "element_type": 1,
+            "percentage": "100",
+            "compound": 1
+        }
+    },
+    {
+        "model": "samples_manager.compoundelement",
+        "pk": 2,
+        "fields": {
+            "element_type": 2,
+            "percentage": "100",
+            "compound": 2
+        }
+    },
+    {
+        "model": "samples_manager.compoundelement",
+        "pk": 3,
+        "fields": {
+            "element_type": 3,
+            "percentage": "100",
+            "compound": 3
+        }
+    },
+    {
+        "model": "samples_manager.compoundelement",
+        "pk": 4,
+        "fields": {
+            "element_type": 4,
+            "percentage": "100",
+            "compound": 4
+        }
+    },
+    {
+        "model": "samples_manager.compoundelement",
+        "pk": 5,
+        "fields": {
+            "element_type": 5,
+            "percentage": "100",
+            "compound": 5
+        }
+    },
+    {
+        "model": "samples_manager.compoundelement",
+        "pk": 6,
+        "fields": {
+            "element_type": 6,
+            "percentage": "100",
+            "compound": 6
+        }
+    },
+    {
+        "model": "samples_manager.compoundelement",
+        "pk": 7,
+        "fields": {
+            "element_type": 7,
+            "percentage": "100",
+            "compound": 7
+        }
+    },
+    {
+        "model": "samples_manager.compoundelement",
+        "pk": 8,
+        "fields": {
+            "element_type": 8,
+            "percentage": "100",
+            "compound": 8
+        }
+    },
+    {
+        "model": "samples_manager.compoundelement",
+        "pk": 9,
+        "fields": {
+            "element_type": 9,
+            "percentage": "100",
+            "compound": 9
+        }
+    },
+    {
+        "model": "samples_manager.compoundelement",
+        "pk": 10,
+        "fields": {
+            "element_type": 10,
+            "percentage": "100",
+            "compound": 10
+        }
+    }
+]

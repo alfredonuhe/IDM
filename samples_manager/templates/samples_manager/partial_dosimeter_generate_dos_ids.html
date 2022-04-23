@@ -1,0 +1,15 @@
+<form method='post' action='{% url "samples_manager:create_dos_ids" %}' class='ui form js-submit-dosimeter-form js-generate-ids-form'>
+    {% csrf_token %}
+    <div class='ui center aligned segment container'>
+        <div class='ui centered header'>
+            <h3 class='modal-title'>Create dosimeter entries</h3>
+        </div>
+        {% for field in form %}
+        {% include 'samples_manager/form_field.html' %}
+        {% endfor %}
+        <div class='two ui buttons actions'>
+            <button type='button' class='ui deny medium button'>Cancel</button>
+            <button type='submit' class='ui orange medium button submit'>Assign IDs</button>
+        </div>
+    </div>
+</form>

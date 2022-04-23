@@ -1,0 +1,57 @@
+<meta charset='UTF-8'>
+{% load static %}
+{% load widget_tweaks %}
+<form method='post' action='{{ form_tag_action }}'
+    class='ui form js-submit-dosimeter-form js-dosimeter-{{ form_action|lower }}-form'>
+    {% csrf_token %}
+    <div class='ui centered grid container'>
+        <div class='ui text container'>
+            <div class='two ui buttons center aligned grid container' style='margin:20px;'>
+                <div class='ui big basic blue button{% if current_page != 1 %} unactive-tab{% endif %}' id='step-tab-1'>
+                    <div class='content'>Step 1</div>
+                </div>
+                <div class='ui big blue basic button{% if current_page != 2 %} unactive-tab{% endif %}' id='step-tab-2'>
+                    <div class='content'>Step 2</div>
+                </div>
+            </div>
+            <div id='steps'>
+                <div id='step-1' class='transition {% if current_page == 1 %}visible{% else %}hidden{% endif %}'>
+                    <div class='ui center aligned segment container '>
+                        <div class='ui centered header'>
+                            <h3>{{ form_action }} dosimeter</h3>
+                            <p class='required form-description-area'>* required field</p>
+                        </div>
+                        {% for field in form1 %}
+                        {% include 'samples_manager/form_field.html' %}
+                        {% endfor %}
+                        <div class='two ui buttons actions'>
+                            <button type='button' class='ui deny medium button'>Cancel</button>
+                            <button type='button' class='ui inverted blue medium button next-step'>Next</button>
+                        </div>
+                    </div>
+                </div>
+                <div id='step-2' class='transition {% if current_page == 2 %}visible{% else %}hidden{% endif %}'>
+                    <div class='ui center aligned  segment container '>
+                        <div class='ui centered header'>
+                            <h3>Details</h3>
+                        </div>
+                        {% for field in form2 %}
+                        {% include 'samples_manager/form_field.html' %}
+                        {% endfor %}
+                        <div class='two ui buttons actions'>
+                            <button type='button' class='ui inverted blue medium button prev-step'>Previous</button>
+                            <button type='submit' class='ui positive medium button submit'>Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script type='text/javascript' src='{% static "js/steps.js" %}'></script>
+<script>
+    $(document).ready(function () {
+        activateSearchSelectFields();
+        activatePopups(1);
+    });
+</script>

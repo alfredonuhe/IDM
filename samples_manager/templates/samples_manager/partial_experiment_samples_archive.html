@@ -1,0 +1,39 @@
+{% load static %}
+{% if pagination_data.double_pagination %}
+<div id='partial-template-pagination-top'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+{% endif %}
+<div id='partial-template-table'>
+    <table class='ui center aligned sortable celled table' id='data-table'>
+        <thead>
+            <tr>
+                <th>Sample ID</th>
+                <th>Sample Name</th>
+                <th>Current experiment</th>
+                <th>Timestamp of change</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for archive in archives %}
+            <tr>
+                <td>{{ archive.sample.set_id }}</td>
+                <td>{{ archive.sample.name }}</td>
+                <td>
+                    <a href='{% url "samples_manager:experiment_samples_list" archive.sample.experiment.id  %}'>
+                        {{archive.sample.experiment}}
+                    </a>
+                </td>
+                <td>{{ archive.timestamp|date:"d/m/Y"}}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan='8' class='text-center'>There are no archived samples</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id='partial-template-pagination-bottom'>
+    {% include 'samples_manager/pagination.html' %}
+</div>

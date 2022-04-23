@@ -1,0 +1,49 @@
+<meta charset='UTF-8'>
+{% load static %}
+{% load widget_tweaks %}
+<form method='post' action='{{ form_tag_action }}'
+    class='ui form js-submit-compound-form js-compound-{{ form_action|lower }}-form'>
+    {% csrf_token %}
+    <div class='ui center aligned segment container'>
+        <div class='ui centered header'>
+            <h3>{{ form_action }} Compound</h3>
+            <p class='required form-description-area'>* required field</p>
+        </div>
+
+        {% for field in form %}
+        {% include 'samples_manager/form_field.html' %}
+        {% endfor %}
+
+        <table class='ui celled table formset_table elem_formset'>
+            {{ elem_formset.management_form }}
+            {% for form in elem_formset.forms %}
+            {% include 'samples_manager/formset_table_head.html' %}
+            {% endfor %}
+            <tbody>
+                {% for form in elem_formset.forms %}
+                {% include 'samples_manager/formset_table_body_row.html' %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class='two ui buttons actions'>
+            <button type='button' class='ui deny medium button'>Cancel</button>
+            <button type='submit' class='ui positive medium button submit'>Submit</button>
+        </div>
+    </div>
+</form>
+<script type='text/javascript' src='{% static "js/jquery.formset.js" %}'></script>
+<script type='text/javascript'>
+    $(document).ready(function () {
+        $('.formset_table.elem_formset .formset_row').formset({
+            addText: 'Add element',
+            deleteText: '×',
+            prefix: '{{ elem_formset.prefix }}',
+            formCssClass: 'dynamic-formset-{{ elem_formset.prefix }}',
+            addCssClass: '{{ elem_formset.prefix }}-add-row',
+            deleteCssClass: '{{ elem_formset.prefix }}-delete-row',
+            added: activateSearchSelectFields
+        });
+        activateSearchSelectFields();
+        activatePopups(500);
+    });
+</script>

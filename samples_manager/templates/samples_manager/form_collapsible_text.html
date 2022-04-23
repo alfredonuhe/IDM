@@ -1,0 +1,4 @@
+{% if additional_text %}
+    <p class='warning-text text-toggle hidden'>{{ additional_text.uncollapsed|linebreaksbr }}<br><a class='text-toggle-action' href=''>show less</a></p>
+    <p class='warning-text text-toggle'>{{ additional_text.collapsed|linebreaksbr }}<br><a class='text-toggle-action' href=''>show more</a></p>
+{% endif %}

@@ -1,0 +1,172 @@
+{% extends 'samples_manager/base_all_tab_list.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block modals %}
+<!-- THE MODAL WE WILL BE USING -->
+<div class='ui modal' id='modal-irradiation'>
+    <i class='close icon'></i>
+    <div class='content modal-content'>
+    </div>
+</div>
+
+<div class='ui modal' id='modal-sample'>
+    <i class='close icon'></i>
+    <div class='content modal-content'>
+    </div>
+</div>
+
+<div class='ui modal' id='modal-compound'>
+    <i class='close icon'></i>
+    <div class='content modal-content'>
+    </div>
+</div>
+{% endblock %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<a class='section' href='{% url "samples_manager:experiments_list" %}'>Experiments</a>
+<div class='divider'> / </div>
+<div class='active section'>Samples {{experiment.title}}</div>
+{% endblock %}
+
+{% block actions %}
+{% if logged_user.role == 'Admin' %}
+<div class='three wide column'>
+    <button type='button' class='ui blue tiny button action-button js-load-sample-form' id='sample-create'
+        title='Create new sample' data-url='{% url "samples_manager:sample_create" experiment.id %}'>
+        <i class='plus icon'></i>Create
+    </button>
+    <a href='{% url "samples_manager:experiment_samples_archive" experiment.id %}'>
+        <button type='button' class='ui tiny button action-button js-load-sample-form'
+            id='sample-archive'title='Access Sample Archive. Samples that are moved from an experiment to another one are kept in the archive session.'>
+            <i class='archive icon'></i>Archive
+        </button>
+    </a>
+</div>
+<div class='four wide column'>
+    <button type='button' class='ui tiny button action-button single-action' 
+        id='sample-read-infoream' title='Read inforEAM'
+        data-url='{% url "samples_manager:sample_read_infoream" experiment.id %}'>
+        <i class='database icon'></i>Read InforEAM
+    </button>
+    {% if experiment.status != 'Completed' %}
+    <button type='button' class='ui tiny button action-button js-load-sample-form single-action' 
+        id='sample-update' title='Update sample'
+        data-url='{% url "samples_manager:sample_update" experiment.id %}'>
+        <i class='pencil icon'></i>Update
+    </button>
+    {% else %}
+    <button type='button' class='mini ui tiny button action-button'id='dosimetry-results'
+        title='Dosimetry results'
+        data-url='{% url "samples_manager:sample_results" experiment.id  %}'>
+        <i class='book icon'></i>Results
+    </button>
+    {% endif %}
+    <button type='button' class='ui tiny button action-button js-load-sample-form single-action' 
+        id='sample-clone' title='Clone sample'
+        data-url='{% url "samples_manager:sample_clone" experiment.id %}'>
+        <i class='clone icon'></i>Clone
+    </button>
+</div>
+<div class='nine wide column'>
+    <button type='button' class=' ui tiny button action-button group-action'
+        id='sample-assign-set-id' title='Assign SET ID'
+        data-url='{% url "samples_manager:assign_set_ids" experiment.id %}'>
+        <i class='tags icon'></i>Asign SET ID
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-sample-form group-action' 
+        id='sample-attach-box'title='Attach box'
+        data-url='{% url "samples_manager:sample_attach_box" experiment.id %}'>
+        <i class='archive icon'></i>Attach Box
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-sample-form group-action'
+        id='sample-write-infoream'title='Write to inforEAM'
+        data-url='{% url "samples_manager:sample_write_infoream" experiment.id %}'>
+        <i class='database icon'></i>Write to inforEAM
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-irradiation-group-form group-action' 
+        id='group-irradiation-create' title='Create Group Irradiation'
+        data-url='{% url "samples_manager:group_irradiation_create" experiment.id %}'>
+        <i class='bolt icon'></i>Create Group Irradiation
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-sample-form group-action'
+        id='sample-move' title='Move to different experiment'
+        data-url='{% url "samples_manager:sample_move" experiment.id %}'>
+        <i class='folder icon'></i>Move to Experiment
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-sample-form group-action' 
+        id='sample-print' title='Print sample'
+        data-url='{% url "samples_manager:equipment_print" experiment.id %}'>
+        <i class='qrcode icon'></i>Print
+    </button>
+    {% if experiment.status != 'Completed' %}
+    <button type='button' class='ui negative tiny button action-button js-load-sample-form group-action' 
+        id='sample-delete' title='Delete experiment'
+        data-url='{% url "samples_manager:sample_delete" experiment.id %}'>
+        <i class='trash icon'></i>Delete
+    </button>
+    {% endif %}
+</div>
+{% else %}
+<div class='three wide column'>
+    <button type='button' class='ui blue tiny button action-button js-load-sample-form' id='sample-create'
+        title='Create new sample' data-url='{% url "samples_manager:sample_create" experiment.id %}'>
+        <i class='plus icon'></i>Create
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-sample-form' 
+        id='sample-archive'title='Access Sample Archive. Samples that are moved from an experiment to another one are kept in the archive session.'
+        data-url='{% url "samples_manager:experiment_samples_archive" experiment.id %}'>
+        <i class='archive icon'></i>Archive
+    </button>
+</div>
+<div class='four wide column'>
+    {% if experiment.status != 'Completed' %}
+    <button type='button' class='ui tiny button action-button js-load-sample-form single-action' 
+        id='sample-update' title='Update sample'
+        data-url='{% url "samples_manager:sample_update" experiment.id %}'>
+        <i class='pencil icon'></i>Update
+    </button>
+    {% else %}
+    <button type='button' class='mini ui tiny button action-button'id='dosimetry-results'
+        title='Dosimetry results'
+        data-url='{% url "samples_manager:sample_results" experiment.id  %}'>
+        <i class='book icon'></i>Results
+    </button>
+    {% endif %}
+    <button type='button' class='ui tiny button action-button js-load-sample-form single-action' 
+        id='sample-clone' title='Clone sample'
+        data-url='{% url "samples_manager:sample_clone" experiment.id %}'>
+        <i class='clone icon'></i>Clone
+    </button>
+</div>
+<div class='three wide column'>
+    <button type='button' class=' ui tiny button action-button group-action'
+        id='sample-assign-set-id' title='Assign SET ID'
+        data-url='{% url "samples_manager:assign_set_ids" experiment.id %}'>
+        <i class='tags icon'></i>Asign SET ID
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-sample-form group-action'
+        id='sample-move' title='Move to different experiment'
+        data-url='{% url "samples_manager:sample_move" experiment.id %}'>
+        <i class='folder icon'></i>Move to Experiment
+    </button>
+    {% if experiment.status != 'Completed' %}
+    <button type='button' class='ui red tiny button action-button js-load-sample-form group-action' 
+        id='sample-delete' title='Delete sample'
+        data-url='{% url "samples_manager:sample_delete" experiment.id %}'>
+        <i class='trash icon'></i>Delete
+    </button>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block partial_template %}
+{% include 'samples_manager/partial_experiment_samples_list.html' %}
+{% endblock %}
+
+{% block javascript %}
+<script type='text/javascript' src='{% static "js/samples.js" %}'></script>
+{% endblock %}

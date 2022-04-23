@@ -1,0 +1,190 @@
+.in, .out {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 500ms !important;
+}
+
+.font{
+    font-family: 'Lobster', cursive;
+    font-weight:300;
+    font-size:40px;
+}
+#step-2{
+    display: none;
+    padding:20px;
+}
+
+#step-3{
+    display: none;
+    padding:20px;
+}
+
+#step-1{
+    padding:20px;
+}
+
+.text.container{
+
+    width:40%;
+
+}
+
+.hidden {
+    display: none !important;
+}
+
+.ui.grid.tab-margin {
+    margin: 0.5%;
+}
+
+.warning-text{
+    font-weight: bold;
+    color: orange;
+}
+
+#logo{
+    border:2px solid white;
+    border-radius: 10px;
+    color:white;
+    padding:15px;
+}
+
+#logo:hover{
+    box-shadow: 0px 0px 5px 5px white;
+}
+
+.ui.modal{
+    top: 3%;
+}
+
+span.circle_span {
+    margin-bottom: 5px;
+    padding-top: 4px;
+    width: 50px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 14px;
+    color: #fff;
+    line-height: 14px;
+    text-align: center;
+}
+
+.ui.modal .scrolling.content{
+    max-height: calc(100vh);
+}
+
+.red_icon{ 
+    background: rgb(196,51,47);
+}
+
+.blue{
+    background: rgb(40,95,143);
+}
+
+.green{
+    background: #008000;
+}
+div.ui.container{
+    width:96%;
+}
+
+#popup{
+    height: 50px;
+    background-color:blue;
+}
+
+#partial-template-container {
+    overflow-x: auto;
+    overflow-y: auto;
+    padding-bottom: 3em;
+}
+
+#partial-template table {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.unactive-tab {
+    opacity: 0.45 !important;
+}
+
+.ui.dimmer.modals {
+    overflow-y: auto;
+}
+
+.no-margin {
+    margin: 0em !important;
+}
+
+#segment-list-page {
+    margin-bottom: 1%;
+}
+
+.info-popup {
+    color: #4183C4;
+    cursor: pointer;
+}
+
+.action-button {
+    margin-top: 0.5em !important;
+}
+
+.required {
+    color: #d93025;
+}
+
+.form-description-area {
+    font-size: 0.6em !important;
+    margin-bottom: 0.8rem;
+}
+
+#iframe-upload-parent {
+    border: 3px solid rgb(200, 200, 200);
+    overflow: hidden;
+    margin: 15px auto;
+    max-width: 736px;
+}
+
+#iframe-upload {
+    border: 0px none; 
+    margin-left: -10px;
+    height: 600px;
+    margin-top: -90px;
+    width: 736px;
+    -moz-transform: scale(1.25); 
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(1.25);
+    -o-transform-origin: 0 0; 
+    -webkit-transform: scale(1);
+    -webkit-transform-origin: 0 0;
+    margin-bottom: -50px;
+}
+
+#breadcrumb {
+    font-size: 1.25rem;
+	margin: 2rem 0rem 2rem 0rem;
+	float: left;
+}
+
+.text-align-left {
+	text-align: left;
+}
+
+.text-align-center {
+	text-align: center;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+#partial-template-container.overflow-unset {
+    overflow: unset;
+}
+
+.loader-content{
+    color: white;
+}
+
+.loader-content .icon{
+    font-size: x-large;
+}

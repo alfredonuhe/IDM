@@ -1,0 +1,159 @@
+<meta charset='UTF-8'>
+{% load static %}
+<html>
+
+    <head>
+        <title>IRRAD Data Manager</title>
+        <link rel='shortcut icon' href='#' />
+        <link rel='stylesheet' type='text/css' href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"/>
+        <link rel='stylesheet' type='text/css' href='{% static "css/jquery.datetimepicker.css" %}' />
+        <link rel='stylesheet' type='text/css' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
+        <link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.0/dist/semantic.min.css'>
+        <link rel='stylesheet' type='text/css' href='{% static "css/cern_toolbar.css" %}'>
+        <link rel='stylesheet' type='text/css' href='{% static "css/number-polyfill.css" %}'>
+        <link rel='stylesheet' type='text/css' href='{% static "css/ui/components/icon.css" %}'>
+        <link rel='stylesheet' type='text/css' href='{% static "css/ui/components/image.css" %}'>
+        <link rel='stylesheet' type='text/css' href='{% static "css/ui/components/transition.css" %}'>
+        <link rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/checkbox.css" %}'>
+        <link rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/sidebar.css" %}'>
+        <link rel='stylesheet' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/form.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/reset.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/site.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css'
+            href='{% static "css/ui/components/default/breadcrumb.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/button.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css'
+            href='{% static "css/ui/components/default/container.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/divider.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/grid.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/header.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/input.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/label.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/list.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/menu.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/message.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/popup.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/reveal.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/segment.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/table.css" %}'>
+        <link class='themable' rel='stylesheet' type='text/css' href='{% static "css/ui/components/default/dropdown.css" %}'>
+        <link rel='stylesheet' type='text/css'
+            href='//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css' />
+        <link rel='stylesheet' type='text/css' href='{% static "css/style.css" %}'>
+        <link rel='stylesheet' type='text/css'
+            href='https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css'>
+        <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js'></script>
+        <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script type='text/javascript' src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+        <script type='text/javascript' src='{% static "js/utilities.js" %}'></script>
+        <script type='text/javascript' src='{% static "js/number-polyfill.js" %}'></script>
+        <script type='text/javascript' src='{% static "js/sorttable.js" %}'></script>
+        <script type='text/javascript' src='{% static "css/ui/semantic.min.js" %}'></script>
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js'></script>
+        <script type='text/javascript' src='{% static "js/base.js" %}'></script>
+        <script type='text/javascript' src='{% static "css/ui/components/default/dropdown.js" %}'></script>
+        {% block javascript %}
+        {% endblock %}
+    </head>
+
+    <body id='home' class='pushable'>
+        <div class='pusher'>
+            <div class='ui container' style='font-size: 80px !important'>
+                <div class='blank-toolbar s4-notdlg'></div>
+                <div class='toolbar-wrapper s4-notdlg'>
+                    <div id='cern-toolbar'>
+                        <h1 id='cern-mainlink'><a href='http://home.cern' title='CERN'>CERN <span>Accelerating science
+                            </span></a></h1>
+                        <ul>
+                            <li id='ctl00_ctl32_linksLi' class='cern-accountlinks'>
+                                <span id='ctl00_ctl32_accountSpan'>Signed in as: <a href='https://cern.ch/account'
+                                        id='ctl00_ctl32_accountLink'
+                                        title='Signed in as {{logged_user}}'>{{logged_user.email}}</a></span>
+                                <a href='https://login.cern.ch/adfs/ls/?wa=wsignout1.0' id='ctl00_ctl32_signOutALink'
+                                    class='cern-signout' title='Sign out of your account'>Sign out</a></li>
+                            <li><a class='cern-directory' href='http://cern.ch/directory'
+                                    title='Search CERN resources and browse the directory'>Directory</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class='ui text menu'>
+                    <div class='ten wide column item'>
+                        <a href='{% url "samples_manager:index" %}' class='item'>
+                            <b>Home</b>
+                        </a>
+                        <div class='ui dropdown link item allowed-dropdown'>
+                            <span class='text'><b>Experiments</b></span>
+                            <i class='dropdown icon'></i>
+                            <div class='menu'>
+                                <a href='{% url "samples_manager:experiments_list" %}' class='item'><b>My Experiments</b></a>
+                                <a href='{% url "samples_manager:experiments_shared_list" %}' class='item'><b>Shared Experiments</b></a>
+
+                            </div>
+                        </div>
+                        <div class='ui dropdown link item allowed-dropdown'>
+                            <span class='text'><b>Info</b></span>
+                            <i class='dropdown icon'></i>
+                            <div class='menu'>
+                                <a href='{% url "samples_manager:regulations" %}' class='item'><b>General Terms</b></a>
+                                <a href='{% url "samples_manager:fluence_conversion" %}' class='item'><b>Fluence
+                                        Conversions</b></a>
+                                <a target='_blank' href='https://op-webtools.web.cern.ch/irrad/index.html#/' class='item'>
+                                    <b>BPM</b></a>
+                                <a target='_blank' href='https://ps-irrad.web.cern.ch/' class='item'><b>IRRAD</b></a>
+                            </div>
+                        </div>
+                        {% if logged_user and logged_user.role == 'Admin' %}
+                        <div class='ui dropdown link item allowed-dropdown'>
+                            <span class='text'><b>Admin</b></span>
+                            <i class='dropdown icon'></i>
+                            <div class='menu'>
+                                <a href='{% url "samples_manager:boxes_list" %}' class='item'><b>Boxes</b></a>
+                                <a href='{% url "samples_manager:compounds_list" %}' class='item'><b>Compounds</b></a>
+                                <a href='{% url "samples_manager:dosimeters_list" %}' class='item'><b>Dosimeters</b></a>
+                                <a href='{% url "samples_manager:dosimetry_results_list" %}' class='item'><b>Dosimetry Results</b></a>
+                                <a href='{% url "samples_manager:irradiations_list" %}' class='item'><b>Irradiations</b></a>
+                                <a href='{% url "samples_manager:fluence_factors_list" %}' class='item'><b>Fluence Factors</b></a>
+                                <a href='{% url "samples_manager:users_list" %}' class='item'><b>Users</b></a>
+                                <a href='https://its.cern.ch/jira/projects/IRRAD/' class='item'><b>Jira</b></a>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class='ui dropdown link item allowed-dropdown'>
+                            <span class='text'><b>Help</b></span>
+                            <i class='dropdown icon'></i>
+                            <div class='menu'>
+                                <a target='_blank' href='https://edms.cern.ch/document/2446951/' class='item'><b>User Manual</b></a>
+                                <a target='_blank' href='mailto: irrad.ps@cern.ch' class='item'><b>Contact Us</b></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='ui right floated item'>
+                        <a href='https://ps-irrad.web.cern.ch/' class='ui small image'>
+                            <img src='{% static  "images/logo.png" %}'>
+                        </a>
+                    </div>
+                    <div class='item'>
+                        <a href='http://aida2020.web.cern.ch/' class='ui small image'>
+                            <img src='{% static "images/aida2020orange.png" %}'>
+                        </a>
+                    </div>
+                </div>
+                <div class='ui center aligned blue raised segment'>
+                    <h1 class='ui center aligned header'>IRRAD Data Manager</h1>
+                </div>
+            </div>
+
+            <div class='page content'>
+                <div class='ui container'>
+                    <div id='loader' class='ui dimmer loader-container'>
+                        <div class='ui text loader'>Waiting for server response.</div>
+                        <div class='ui text error loader-content'><i class="times circle outline icon"></i><br><br>Something went wrong.</div>
+                        <div class='ui text success loader-content'><i class="check circle outline icon"></i><br><br>Success.</div>
+                    </div>
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

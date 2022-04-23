@@ -1,0 +1,47 @@
+{% extends 'samples_manager/base_index.html' %}
+{% load static %}
+{% block modals %}
+<!-- THE MODAL WE WILL BE USING -->
+<div class='ui modal' id='modal-experiment'>
+    <i class='close icon'></i>
+    <div class='content modal-content'>
+    </div>
+</div>
+{% endblock %}
+
+{% block content_index %}
+{% if logged_user %}
+<p>Welcome to IRRAD Data Manager, the all-in-one data management tool for the registration, supervision and follow
+    up of IRRAD experiments. Please, create your experiment.</p>
+<a href='{% url "samples_manager:experiments_list" %}'>
+    <button type='button' id='user-experiments' class='massive ui yellow button' title='View all your registered experiments'>
+        <i class='chart line icon'></i> My Experiments
+    </button>
+</a>
+<button type='button' data-target='#modal-experiment' class='massive ui blue button js-load-experiment-form'
+    id='experiment-create' title='Register new irradiation experiment' data-url='{% url "samples_manager:experiment_create" %}'>
+    <i class='plus icon'></i> Create Experiment
+</button>
+{% else %}
+<p>Welcome to IRRAD Data Manager, the all-in-one data management tool for the registration, supervision and follow
+    up of IRRAD experiments. If you are not member of irrad-ps-users e-group, please <a target='_blank'
+        style='text-decoration: underline;'
+        href='placeholder.url.com'>subscribe</a> there before signing in.
+</p>
+<a target='_blank' style='text-decoration: underline;'
+    href='placeholder.url.com'
+    title='Subscribe to irrad-ps-users e-group'>
+    <button type='button' class='massive ui positive compact icon button'>
+        <i class='users icon'></i> Subscribe in e-group
+    </button>
+</a>
+<a href='{% url "samples_manager:index" %}' title='Sign in'>
+    <button type='button' class='massive ui yellow compact icon button'>
+        <i class='sign in alternate icon'></i> Sign In
+    </button>
+</a>
+{% endif %}
+{% endblock %}
+{% block javascript %}
+<script type='text/javascript' src='{% static "js/experiments.js" %}'></script>
+{% endblock %}

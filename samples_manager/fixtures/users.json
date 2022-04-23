@@ -1,0 +1,24 @@
+[
+    {
+        "model": "samples_manager.user",
+        "pk": 1,
+        "fields": {
+            "name": "Test",
+            "surname": "Admin",
+            "email": "test-admin@gmail.com",
+            "role": "Admin",
+            "last_login": "2020-12-12T13:20:30+00:00"
+        }
+    },
+    {
+        "model": "samples_manager.user",
+        "pk": 2,
+        "fields": {
+            "name": "Test",
+            "surname": "User",
+            "email": "test-user@gmail.com",
+            "role": "User",
+            "last_login": "2020-12-12T13:20:30+00:00"
+        }
+    }
+]

@@ -1,0 +1,26 @@
+<meta charset='UTF-8'>
+{% load static %}
+{% load widget_tweaks %}
+<form method='post' data-url='{% url "samples_manager:irradiations_list" %}'
+    action='{% url "samples_manager:irradiation_in_beam_status_update" %}'
+    class='ui form js-submit-irradiation-form js-irradiation-update-form'>
+    {% csrf_token %}
+    <div class='ui center aligned segment container'>
+        <div class='ui centered header'>
+            <h3>Update in-beam status</h3>
+        </div>
+        {% include 'samples_manager/form_collapsible_text.html' %}
+        {% for field in form %}
+        {% include 'samples_manager/form_field.html' %}
+        {% endfor %}
+        <div class='two ui buttons actions'>
+            <button type='button' class='ui deny medium button'>Cancel</button>
+            <button type='submit' class='ui positive medium button submit'>Save</button>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        activateSearchSelectFields();
+    });
+</script>

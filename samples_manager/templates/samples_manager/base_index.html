@@ -1,0 +1,14 @@
+{% extends 'samples_manager/base.html' %}
+{% block content %}
+<div id='segment-list-page' class='ui center aligned raised segment grid'>
+    {% block modals %}
+    {% endblock %}
+    <div class='ui row'>
+        <div class='ui sixteen wide column'>
+            {% block content_index %}
+            {% endblock %}
+            <br>
+        </div>
+    </div>
+</div>
+{% endblock %}

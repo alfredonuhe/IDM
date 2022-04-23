@@ -1,0 +1,50 @@
+[
+    {
+        "model": "samples_manager.reqfluence",
+        "pk": 1,
+        "fields": {
+            "req_fluence": "1",
+            "experiment": 1
+        }
+    },
+    {
+        "model": "samples_manager.reqfluence",
+        "pk": 2,
+        "fields": {
+            "req_fluence": "1",
+            "experiment": 2
+        }
+    },
+    {
+        "model": "samples_manager.reqfluence",
+        "pk": 3,
+        "fields": {
+            "req_fluence": "1",
+            "experiment": 3
+        }
+    },
+    {
+        "model": "samples_manager.reqfluence",
+        "pk": 4,
+        "fields": {
+            "req_fluence": "1",
+            "experiment": 4
+        }
+    },
+    {
+        "model": "samples_manager.reqfluence",
+        "pk": 5,
+        "fields": {
+            "req_fluence": "1",
+            "experiment": 5
+        }
+    },
+    {
+        "model": "samples_manager.reqfluence",
+        "pk": 6,
+        "fields": {
+            "req_fluence": "1",
+            "experiment": 6
+        }
+    }
+]

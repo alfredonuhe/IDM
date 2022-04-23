@@ -1,0 +1,42 @@
+{% load static %}
+{% if pagination_data.double_pagination %}
+<div id='partial-template-pagination-top'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+{% endif %}
+<div id='partial-template-table'>
+    <table class='ui center aligned sortable celled table' id='data-table'>
+        <thead>
+            <tr>
+                <th class='sorttable_nosort'><input name='select_all' value='1'
+                    id='all-checkbox' class='checkbox' type='checkbox' /></th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>E-mail</th>
+                <th>Telephone</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td><input type='checkbox' class='checkbox' id='user-{{user.id}}' name='checks[]'
+                    value='{{user.id}}'></td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.surname }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.telephone }}</td>
+                <td>{{ user.role }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan='8' class='text-center'>There are no users</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id='partial-template-pagination-bottom'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+<script type='text/javascript' src='{% static "js/checkboxes.js" %}'></script>

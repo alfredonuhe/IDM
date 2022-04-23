@@ -1,0 +1,51 @@
+{% load static %}
+{% if pagination_data.double_pagination %}
+<div id='partial-template-pagination-top'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+{% endif %}
+<div id='partial-template-table'>
+    <table class='ui center aligned sortable celled table' id='data-table'>
+        <thead>
+            <tr>
+                <th class='sorttable_nosort'><input name='select_all' value='1'
+                    id='all-checkbox' class='checkbox' type='checkbox' /></th>
+                <th>Experiment title</th>
+                <th>Responsible person</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for experiment in experiment_data.experiments %}
+            <tr>
+                <td><input type='checkbox' class='checkbox' id='experiment-{{experiment.id}}' name='checks[]'
+                    value='{{experiment.id}}'></td>
+                <td>
+                    {{experiment.title}}<br>(
+                    {%if experiment.irradiation_type == 'Protons' %}
+                    <span title='Protons' style=' color: red'>p</span>
+                    {%elif experiment.irradiation_type == 'Heavy ions' %}
+                    <span title='Heavy Ions' style=' color: blue'><i>HI</i></span>
+                    {% else %}
+                    <span title='Pions' style=' color: green'><i>Pi</i></span>
+                    {% endif %}
+                    )
+                </td>
+                {%if experiment.responsible.surname %}
+                <td>{{experiment.responsible.name}} {{experiment.responsible.surname}}
+                    ({{experiment.responsible.email}})</td>
+                {% else %}
+                <td>{{experiment.responsible}} </td>
+                {% endif %}
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan='10'>There are no experiments. Please, make sure that all your experiments are visible.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id='partial-template-pagination-bottom'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+<script type='text/javascript' src='{% static "js/checkboxes.js" %}'></script>

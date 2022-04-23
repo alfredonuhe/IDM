@@ -1,0 +1,43 @@
+{% extends 'samples_manager/base_all_tab_list.html' %}
+{% load static %}
+
+{% block modals %}
+<!-- THE MODAL WE WILL BE USING -->
+<div class='ui modal' id='modal-box-item'>
+    <i class='close icon'></i>
+    <div class='content modal-content'>
+    </div>
+</div>
+{% endblock %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<a class='section' href='{% url "samples_manager:boxes_list" %}'>Boxes</a>
+<div class='divider'> / </div>
+<div class='active section'>Box items {{ box.box_id }}</div>
+{% endblock %}
+
+{% block actions %}
+<div class='two wide column'>
+    <button type='button' class='ui blue tiny button action-button js-load-box-item-form' id='box-add-item'
+        title='Add box item' data-url='{% url "samples_manager:box_items_add" box.id %}'>
+        <i class='plus icon'></i>Add Item
+    </button>
+</div>
+<div class='two wide column'>
+    <button type='button' class='ui red tiny button action-button js-load-box-item-form group-action' 
+        id='box-item-remove' title='Remove box item'
+        data-url='{% url "samples_manager:box_item_remove" box.id %}'>
+        <i class='trash icon'></i>Remove
+    </button>
+</div>
+{% endblock %}
+
+{% block partial_template %}
+{% include 'samples_manager/partial_box_items_list.html' %}
+{% endblock %}
+
+{% block javascript %}
+<script type='text/javascript' src='{% static "js/boxes.js" %}'></script>
+{% endblock %}

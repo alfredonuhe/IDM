@@ -1,0 +1,28 @@
+{% extends 'samples_manager/base_all_tab_list.html' %}
+{% load static %}
+
+{% block modals %}
+{% endblock %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<div class='active section'>Dosimetry Results</div>
+{% endblock %}
+
+{% block actions %}
+<div class='two wide column'>
+    <button type='button' class='ui tiny button action-button' 
+        id='dosimetry-results-export' title='Export results'>
+        <i class='download icon'></i>Export results
+    </button>
+</div>
+{% endblock %}
+
+{% block partial_template %}
+{% include 'samples_manager/partial_dosimetry_results_list.html' %}
+{% endblock %}
+
+{% block javascript %}
+<script type='text/javascript' src='{% static "js/irradiations.js" %}'></script>
+{% endblock %}

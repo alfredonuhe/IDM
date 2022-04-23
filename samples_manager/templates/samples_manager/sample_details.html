@@ -1,0 +1,170 @@
+{% extends 'samples_manager/base_details.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<a class='section' href='{% url "samples_manager:experiments_list" %}'>Experiments</a>
+<div class='divider'> / </div>
+<a class='section' href='{% url "samples_manager:experiment_samples_list" sample.experiment.id%}'>Samples {{ sample.experiment.title }}</a>
+<div class='divider'> / </div>
+<div class='active section'>Details {{sample.name}}</div>
+{% endblock %}
+
+{% block partial_template %}
+<div class='ui two column grid'>
+    <div class='column'>
+        <div class='ui segment'>
+            <div class='ui divided selection list'>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Name
+                    </div>
+                    {{sample.name}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        ID
+                    </div>
+                    {{sample.set_id}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Location
+                    </div>
+                    {{sample.current_location}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Dimensions
+                    </div>
+                    {{sample.width|num_notation:'4d'}}x{{sample.height|num_notation:'4d'}} mm
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Weight
+                    </div>
+                    {{sample.weight|num_notation:'4d'}} g
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Requested Fluence
+                    </div>
+                    {{sample.req_fluence.req_fluence|num_notation:'4e'}} {{sample.experiment.irradiation_type|lower}}/cm<sup>2</sup>
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Material
+                    </div>
+                    {{sample.material}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Storage
+                    </div>
+                    {{sample.storage}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Last Location
+                    </div>
+                    {{sample.last_location}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Status
+                    </div>
+                    {{sample.status}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='column'>
+        <div class='ui segment'>
+            <div class='ui divided selection list'>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Experiment
+                    </div>
+                    <a href='{% url "samples_manager:experiment_details" sample.experiment.id %}'>{{sample.experiment.title}}</a>
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Box
+                    </div>
+                    {%if sample.box %}
+                    <a href='{% url "samples_manager:box_details" sample.box.id %}'>{{sample.box.box_id}}</a>
+                    {% endif %}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Category
+                    </div>
+                    {{sample.category}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Radiation Length Occupancy
+                    </div>
+                    {{sample.radiation_length_occupancy|num_notation:'3d'}}%
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Nuclear Collision Occupancy
+                    </div>
+                    {{sample.nu_coll_length_occupancy|num_notation:'3d'}}%
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Nuclear Interaction Occupancy
+                    </div>
+                    {{sample.nu_int_length_occupancy|num_notation:'3d'}}%
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Created at
+                    </div>
+                    {{sample.created_at}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Updated at
+                    </div>
+                    {{sample.updated_at}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Created by
+                    </div>
+                    {{sample.created_by}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Updated by
+                    </div>
+                    {{sample.updated_by}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Layers
+                    </div>
+                    {% for layer in layers %}
+                    {{layer.name}} {{layer.compound_type}} {{layer.length|num_notation:'6d'}} mm; 
+                    {% endfor %}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Comments
+                    </div>
+                    {{sample.comments}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script type='text/javascript' src='{% static "js/samples.js" %}'></script>
+{% endblock %}

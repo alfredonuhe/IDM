@@ -1,0 +1,31 @@
+<div class="ui grid no-margin">
+    <div class="three wide column"></div>
+    <div class="ten wide column">
+        <div class='ui pagination menu'>
+            {% if pagination_data.page_obj.has_previous %}
+            <a class='item' href='{{ pagination_data.first_href }}'>&laquo; first</a>
+            <a class='item' href='{{ pagination_data.previous_href }}'>previous</a>
+            {% endif %}
+            {% for page in pagination_data.pages %}
+                {% if page.active %}
+                    <a class='item active' href='{{ page.href }}'>{{ page.obj.number }}</a>
+                {% else %}
+                    <a class='item' href='{{ page.href }}'>{{ page.obj.number }}</a>
+                {% endif %}
+            {% endfor %}
+            {% if pagination_data.page_obj.has_next %}
+            <a class='item' href='{{ pagination_data.next_href }}'>next</a>
+            <a class='item' href='{{ pagination_data.last_href }}'>last &raquo;</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="three wide column">
+        {% include 'samples_manager/elements_per_page.html' %}
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        activateSearchSelectFields();
+        syncElementsPerPage();
+    });
+</script>

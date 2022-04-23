@@ -1,0 +1,23 @@
+<meta charset='UTF-8'>
+{% load static %}
+<form method='post' action='{% url "samples_manager:experiment_upload_attachment" %}' class='ui form js-submit-experiment-form'>
+    {% csrf_token %}
+    <div class='ui center aligned segment container'>
+        <div class='ui centered header'>
+            <h3>Submit Attachments</h3>
+        </div>
+        <div class='field form-group '>
+            <label><span style='color:red;'>Please add "{{ experiment_id }}_" as a prefix
+                to your files' names (e.g. {{ experiment_id }}_myfile.pdf)</span>. The selected experiment's id is {{ experiment_id }}.
+            </label>
+            <div id="iframe-upload-parent">
+                <iframe id="iframe-upload" scrolling="no" src="placeholder.url.com">
+                </iframe>
+            </div>    
+        </div>  
+        <div class='two ui buttons actions'>
+            <button type='button' class='ui deny medium button'>Cancel</button>
+            <button type='submit' class='ui positive medium button submit'>Done</button>
+        </div>
+    </div>
+</form>

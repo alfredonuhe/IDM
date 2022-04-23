@@ -1,0 +1,10 @@
+/samples_manager/*.pyc
+*.pyc
+*.sqlite3
+*.png
+/samples_manager/migrations/*
+/samples_manager/static/*.csv
+.vscode
+geckodriver.log
+/static/*
+irrad-data-manager/secret.py

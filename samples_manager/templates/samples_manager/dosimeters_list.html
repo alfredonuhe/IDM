@@ -1,0 +1,82 @@
+{% extends 'samples_manager/base_all_tab_list.html' %}
+{% load static %}
+
+{% block modals %}
+<!-- THE MODAL WE WILL BE USING -->
+<div class='ui modal' id='modal-dosimeter'>
+    <i class='close icon'></i>
+    <div class='content modal-content'>
+    </div>
+</div>
+{% endblock %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<div class='active section'>Dosimeters</div>
+{% endblock %}
+
+{% block actions %}
+<div class='four wide column'>
+    <button type='button' class='ui blue tiny button action-button js-load-dosimeter-form' id='dosimeter-create'
+        title='Create new dosimeter' data-url='{% url "samples_manager:dosimeter_create" %}'>
+        <i class='plus icon'></i>Create
+    </button>
+    <button type='button' class='ui blue tiny button action-button js-load-dosimeter-form' id='dosimeter-create-ids'
+        title='Create dosimeter IDs' data-url='{% url "samples_manager:create_dos_ids" %}'>
+        <i class='plus icon'></i>Create Dosimeter IDs
+    </button>
+</div>
+<div class='five wide column'>
+    <button type='button' class='ui tiny button action-button js-redirect-form single-action' 
+        id='dosimeter-read-infoream' title='Read inforEAM'
+        data-url='{% url "samples_manager:dosimeter_read_infoream" %}'>
+        <i class='database icon'></i>Read InforEAM
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-dosimeter-form single-action' 
+        id='dosimeter-update' title='Update dosimeter'
+        data-url='{% url "samples_manager:dosimeter_update" %}'>
+        <i class='pencil icon'></i>Update
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-dosimeter-form single-action' 
+        id='dosimeter-clone' title='Clone dosimeter'
+        data-url='{% url "samples_manager:dosimeter_clone" %}'>
+        <i class='clone icon'></i>Clone
+    </button>
+    <button type='button' class=' ui tiny button action-button js-redirect-form single-action'
+        id='dosimeter-details' title='View details'
+        data-url='{% url "samples_manager:redirect_dosimeter_details" %}'>
+        <i class='eye icon'></i>View Details
+    </button>
+</div>
+<div class='five wide column'>
+    <button type='button' class='ui tiny button action-button js-load-dosimeter-form group-action' 
+        id='dosimeter-attach-box'title='Attach box'
+        data-url='{% url "samples_manager:dosimeter_attach_box" %}'>
+        <i class='archive icon'></i>Attach Box
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-dosimeter-form group-action'
+        id='dosimeter-write-infoream'title='Write to inforEAM'
+        data-url='{% url "samples_manager:dosimeter_write_infoream" %}'>
+        <i class='database icon'></i>Write to inforEAM
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-dosimeter-form group-action' 
+        id='dosimeter-print' title='Print dosimeter'
+        data-url='{% url "samples_manager:equipment_print" %}'>
+        <i class='qrcode icon'></i>Print
+    </button>
+    <button type='button' class='ui red tiny button action-button js-load-dosimeter-form group-action' 
+        id='dosimeter-delete' title='Delete dosimeter'
+        data-url='{% url "samples_manager:dosimeter_delete" %}'>
+        <i class='trash icon'></i>Delete
+    </button>
+</div>
+{% endblock %}
+
+{% block partial_template %}
+{% include 'samples_manager/partial_dosimeters_list.html' %}
+{% endblock %}
+
+{% block javascript %}
+<script type='text/javascript' src='{% static "js/dosimeters.js" %}'></script>
+{% endblock %}

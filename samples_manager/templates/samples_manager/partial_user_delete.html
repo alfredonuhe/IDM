@@ -1,0 +1,16 @@
+<form method='post' action='{% url "samples_manager:user_delete" %}' class='ui form js-submit-user-form js-user-delete-form'>
+    {% csrf_token %}
+    <div class='ui center aligned segment container'>
+        <div class='ui centered header'>
+            <h3>Confirm user deletion</h3>
+        </div>
+        <p>Are you sure you want to perform this action? It is irreversible.</p>
+        <p><b>The users will be deleted from all experiments, and the experiments that he/she is responsible will be also
+                deleted!</b></p>
+        {% include 'samples_manager/form_collapsible_text.html' %}
+        <div class='two ui buttons actions'>
+            <button type='button' class='ui deny medium button'>Cancel</button>
+            <button type='submit' class='ui negative medium button submit'>Delete</button>
+        </div>
+    </div>
+</form>

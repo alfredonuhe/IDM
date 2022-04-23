@@ -1,0 +1,40 @@
+[
+    {
+        "model": "samples_manager.box",
+        "pk": 1,
+        "fields": {
+            "box_id": "BOX-000001",
+            "description": null,
+            "responsible": 1,
+            "current_location": "14/R-012",
+            "last_location": "14/R-012",
+            "length": 0.1,
+            "height": 0.1,
+            "width": 0.1,
+            "weight": 0.1,
+            "created_at": "2020-12-12T13:00:00+00:00",
+            "updated_at": "2020-12-12T13:00:00+00:00",
+            "created_by": 1,
+            "updated_by": 1
+        }
+    },
+    {
+        "model": "samples_manager.box",
+        "pk": 2,
+        "fields": {
+            "box_id": "BOX-000500",
+            "description": null,
+            "responsible": 1,
+            "current_location": "14/R-012",
+            "last_location": "14/R-012",
+            "length": 0.2,
+            "height": 0.2,
+            "width": 0.2,
+            "weight": 0.2,
+            "created_at": "2020-12-12T13:00:00+00:00",
+            "updated_at": "2020-12-12T13:00:00+00:00",
+            "created_by": 1,
+            "updated_by": 1
+        }
+    }
+]

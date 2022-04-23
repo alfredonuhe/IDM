@@ -1,0 +1,20 @@
+<tr class='{% cycle row1 row2 %} formset_row'>
+    {% for field in form.visible_fields %}
+        <td>
+            {# Include the hidden fields in the form #}
+            {% if forloop.first %}
+            {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+            {% endfor %}
+            {% endif %}
+            <div class='form-group{% if field.errors and render_with_errors %} has-error{% endif %}'>
+                {{ field }}
+                {% if render_with_errors %}
+                {% for error in field.errors %}
+                <span class='ui pointing basic red label'>{{error}}</span>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </td>
+    {% endfor %}
+</tr>

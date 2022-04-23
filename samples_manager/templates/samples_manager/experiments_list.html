@@ -1,0 +1,148 @@
+{% extends base_template %}
+{% load static %}
+
+{% block modals %}
+<!-- THE MODAL WE WILL BE USING -->
+<div class='ui modal' id='modal-experiment'>
+    <i class='close icon'></i>
+    <div class='content modal-content'>
+    </div>
+</div>
+{% endblock %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<div class='active section'>Experiments</div>
+{% endblock %}
+
+{% block actions %}
+{% if logged_user.role == 'Admin' %}
+<div class='two wide column'>
+    <button type='button' class='ui blue tiny button action-button js-load-experiment-form' 
+        id='experiment-create' title='Create experiment'
+        data-url='{% url "samples_manager:experiment_create" %}'>
+        <i class='plus icon'></i>Create
+    </button>
+</div>
+<div class='six wide column'>
+    <button type='button' class=' ui tiny button action-button single-action js-load-experiment-form'
+        id='experiment-validate' title='Check and validate'
+        data-url='{% url "samples_manager:experiment_validate" %}'>
+        <i class='check icon'></i>Validate
+    </button>
+    <button type='button' class='ui tiny button action-button js-redirect-form single-action' 
+        id='experiment-users' title='View users'
+        data-url='{% url "samples_manager:redirect_experiment_users_list" %}'>
+        <i class='user outline icon'></i>Users
+    </button>
+    <button type='button' class='ui tiny button action-button js-redirect-form single-action'
+        id='experiment-samples' title='View samples'
+        data-url='{% url "samples_manager:redirect_experiment_samples_list" %}'>
+        <i class='microchip icon'></i>Samples
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-experiment-form single-action' 
+        id='experiment-update' title='Delete experiment'
+        data-url='{% url "samples_manager:experiment_update" %}'>
+        <i class='pencil icon'></i>Update
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-experiment-form single-action' 
+        id='experiment-clone' title='Delete experiment'
+        data-url='{% url "samples_manager:experiment_clone" %}'>
+        <i class='clone icon'></i>Clone
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-experiment-form single-action' 
+        id='experiment-upload-attachment' title='Upload attachment'
+        data-url='{% url "samples_manager:experiment_upload_attachment" %}'>
+        <i class='file icon'></i>Upload Attachment
+    </button>
+    <button type='button' class=' ui tiny button action-button js-redirect-form single-action'
+        id='experiment-details' title='View details'
+        data-url='{% url "samples_manager:redirect_experiment_details" %}'>
+        <i class='eye icon'></i>View Details
+    </button>
+</div>
+<div class='six wide column'>
+    <button type='button' class='ui tiny button action-button js-load-experiment-form group-action' 
+        id='experiment-status-update' title='Change status experiment'
+        data-url='{% url "samples_manager:experiment_status_update" %}'>
+        <i class='hourglass icon'></i>Change Status
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-experiment-form group-action' 
+        id='experiment-visibility' title='Update experiment visibility'
+        data-url='{% url "samples_manager:experiment_update_visibility" %}'>
+        <i class='eye icon'></i>Update visibility
+    </button>
+    <button type='button' class='ui tiny button action-button js-redirect-form group-action' 
+        id='experiment-contact-responsible' title='Contact responsibles'
+        data-url='{% url "samples_manager:redirect_experiment_contact_responsible" %}'>
+        <i class='envelope icon'></i>Contact Responsibles
+    </button>
+    <button type='button' class='ui negative tiny button action-button js-load-experiment-form group-action' 
+        id='experiment-delete' title='Delete experiment'
+        data-url='{% url "samples_manager:experiment_delete" %}'>
+        <i class='trash icon'></i>Delete
+    </button>
+</div>
+{% else %}
+<div class='two wide column'>
+    <button type='button' class='ui blue tiny button action-button js-load-experiment-form' 
+        id='experiment-create' title='Create experiment'
+        data-url='{% url "samples_manager:experiment_create" %}'>
+        <i class='plus icon'></i>Create
+    </button>
+</div>
+<div class='five wide column'>
+    <button type='button' class='ui tiny button action-button js-redirect-form single-action' 
+        id='experiment-users' title='View users'
+        data-url='{% url "samples_manager:redirect_experiment_users_list" %}'>
+        <i class='user outline icon'></i>Users
+    </button>
+    <button type='button' class='ui tiny button action-button js-redirect-form single-action'
+        id='experiment-samples' title='View samples'
+        data-url='{% url "samples_manager:redirect_experiment_samples_list" %}'>
+        <i class='microchip icon'></i>Samples
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-experiment-form single-action' 
+        id='experiment-update' title='Delete experiment'
+        data-url='{% url "samples_manager:experiment_update" %}'>
+        <i class='pencil icon'></i>Update
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-experiment-form single-action' 
+        id='experiment-clone' title='Delete experiment'
+        data-url='{% url "samples_manager:experiment_clone" %}'>
+        <i class='clone icon'></i>Clone
+    </button>
+    <button type='button' class='ui tiny button action-button js-load-experiment-form single-action' 
+        id='experiment-upload-attachment' title='Upload attachment'
+        data-url='{% url "samples_manager:experiment_upload_attachment" %}'>
+        <i class='file icon'></i>Upload Attachment
+    </button>
+    <button type='button' class=' ui tiny button action-button js-redirect-form single-action'
+        id='experiment-details' title='View details'
+        data-url='{% url "samples_manager:redirect_experiment_details" %}'>
+        <i class='eye icon'></i>View Details
+    </button>
+</div>
+<div class='four wide column'>
+    <button type='button' class='ui tiny button action-button js-load-experiment-form group-action' 
+        id='experiment-visibility' title='Update experiment visibility'
+        data-url='{% url "samples_manager:experiment_update_visibility" %}'>
+        <i class='eye icon'></i>Update visibility
+    </button>
+    <button type='button' class='ui red tiny button action-button js-load-experiment-form group-action' 
+        id='experiment-delete' title='Delete experiment'
+        data-url='{% url "samples_manager:experiment_delete" %}'>
+        <i class='trash icon'></i>Delete
+    </button>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block partial_template %}
+{% include partial_template %}
+{% endblock %}
+
+{% block javascript %}
+<script type='text/javascript' src='{% static "js/experiments.js" %}'></script>
+{% endblock %}

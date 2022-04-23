@@ -1,0 +1,25 @@
+{% load widget_tweaks %}
+<form method='post' data-url='{% url "samples_manager:fluence_factors_list" %}'
+    action='{{ form_tag_action }}' class='ui form js-submit-fluence-factor-form js-fluence-factor-{{ form_action|lower }}-form'>
+    {% csrf_token %}
+    <div class='ui center aligned segment container'>
+        <div class='ui centered header'>
+            <h3>{{ form_action }} Fluence Factor</h3>
+            <p class='required form-description-area'>* required field</p>
+        </div>
+        {% for error in form.non_field_errors %}
+        <span class='ui basic red label'>{{ error }}</span><br><br>
+        {% endfor %}
+        {% for field in form %}
+        {% include 'samples_manager/form_field.html' %}
+        {% endfor %}
+        <div class='two ui buttons actions'>
+            <button type='button' class='ui deny medium button'>Cancel</button>
+            <button type='submit' class='ui positive medium button submit'>Save</button>
+        </div>
+    </div>
+</form>
+<script>
+    activateSearchSelectFields();
+    activatePopups();
+</script>

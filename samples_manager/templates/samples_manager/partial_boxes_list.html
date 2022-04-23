@@ -1,0 +1,54 @@
+{% load static %}
+{% load custom_filters %}
+{% if pagination_data.double_pagination %}
+<div id='partial-template-pagination-top'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+{% endif %}
+<div id='partial-template-table'>
+    <table class='ui center aligned sortable celled table' id='data-table'>
+        <thead>
+            <tr>
+                <th class='sorttable_nosort'><input name='select_all' value='1' id='all-checkbox'
+                    type='checkbox' /></th>
+                <th>Box ID</th>
+                <th>Description</th>
+                <th>Length (cm)</th>
+                <th>Height (cm)</th>
+                <th>Width (cm)</th>
+                <th>Weight (kg)</th>
+                <th>Responsible </th>
+                <th>Current location</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for box in boxes %}
+            <tr>
+                <td><input type='checkbox' class='checkbox' id='box-{{box.id}}' 
+                    name='checks[]' value='{{box.id}}'></td>
+                <td>{{ box.box_id }}</td>
+                <td>{{ box.description }}</td>
+                <td>{{ box.length|num_notation:'2d' }}</td>
+                <td>{{ box.height|num_notation:'2d' }}</td>
+                <td>{{ box.width|num_notation:'2d' }}</td>
+                <td>{{ box.weight|num_notation:'2d' }}</td>
+                <td>{{ box.responsible}}</td>
+                <td>{{ box.current_location}}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan='8' class='text-center bg-warning'>No boxes</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script>
+        $(document).ready(function () {
+            allowDropdown();
+        });
+    </script>
+</div>
+<div id='partial-template-pagination-bottom'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+<script type='text/javascript' src='{% static "js/checkboxes.js" %}'></script>

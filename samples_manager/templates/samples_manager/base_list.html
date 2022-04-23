@@ -1,0 +1,22 @@
+{% extends 'samples_manager/base.html' %}
+{% block content %}
+<div id='segment-list-page' class='ui center aligned raised segment grid'>
+    {% block modals %}
+    {% endblock %}
+    <div class='ui row'>
+        <div class='ui fourteen wide column'>
+            <div id='breadcrumb' class='ui big breadcrumb'>
+                {% block breadcrumb %}
+                {% endblock %}
+            </div>
+        </div>
+        <div class='ui two wide column'></div>
+    </div>
+    <div class='ui row'>
+        <div class='ui sixteen wide column'>
+            {% block list_content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

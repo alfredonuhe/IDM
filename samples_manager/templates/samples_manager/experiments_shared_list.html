@@ -1,0 +1,30 @@
+{% extends 'samples_manager/base_all_tab_list.html' %}
+{% load static %}
+
+{% block modals %}
+{% endblock %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<div class='active section'>Shared Experiments</div>
+{% endblock %}
+
+{% block actions %}
+<div class='two wide column'>
+    <button type='button' class=' ui tiny button action-button js-redirect-form single-action'
+        id='experiment-details' title='View details'
+        data-url='{% url "samples_manager:redirect_experiment_details" %}'>
+        <i class='eye icon'></i>View Details
+    </button>
+</div>
+<div class='rwo wide column'></div>
+{% endblock %}
+
+{% block partial_template %}
+{% include 'samples_manager/partial_experiments_shared_list.html' %}
+{% endblock %}
+
+{% block javascript %}
+<script type='text/javascript' src='{% static "js/experiments.js" %}'></script>
+{% endblock %}

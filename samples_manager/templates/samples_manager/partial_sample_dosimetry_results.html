@@ -1,0 +1,35 @@
+{% load custom_filters %}
+<div id='partial-template-table'>
+    <table class='ui center aligned sortable celled table very compact striped' id='data-table'></table>
+    <thead>
+        <tr>
+            <th>Dosimeter</th>
+            <th>Dimensions (mm<sup>2</sup>)</th>
+            <th>Date In</th>
+            <th>Date Out</th>
+            <th>SEC</th>
+            <th>Accumulated fluence</th>
+            <th>Error(%)</th>
+            <th>Comments</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.dosimeter.dos_id }}</td>
+            <td>{{ result.dosimeter.width|num_notation:'4d'}}&#10005;{{ result.dosimeter.height|num_notation:'4d'}} </td>
+            <td>{{ result.date_in|date:"d/m/Y"}} {{ result.date_in|time:"H:i"}}</td>
+            <td>{{ result.date_out|date:"d/m/Y"}} {{ result.date_out|time:"H:i"}}</td>
+            <td> {{ result.sec||num_notation:'4e' }}</td>
+            <td> {{ result.estimated_fluence|num_notation:'4e' }}</td>
+            <td> {{ result.fluence_error|num_notation:'2d'}}</td>
+            <td> {{ result.comments }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan='10'>There are no results</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>

@@ -1,0 +1,58 @@
+<!--TODO see if it is used-->
+<div id='partial-template-table'>
+    <table class='table' id='experiment-table'>
+        <thead>
+            <tr>
+                <th>Irradiation title</th>
+                <th>Description</th>
+                <th>CERN experiment</th>
+                <th>Availability</th>
+                <th>Number of samples</th>
+                <th>Responsible person</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for experiment in experiments %}
+            <tr>
+                <td>{{ experiment.title }}</td>
+                <td>{{ experiment.description }}</td>
+                <td>{{ experiment.cern_experiment }}</td>
+                <td>{{ experiment.availability }}</td>
+                <td>{{ experiment.number_samples }}</td>
+                <td>{{ experiment.responsible }}</td>
+                <td>{{ experiment.status }}</td>
+                <td>
+                    <button type='button' class='btn btn-success btn js-load-experiment-form js-update-experiment'
+                        title='Check and validate'
+                        data-url='{% url "samples_manager:experiment_validate" experiment.id %}'>
+                        <span class='glyphicon glyphicon-ok'></span>
+                    </button>
+                    <button type='button' class='btn btn-primary btn js-load-experiment-form'
+                        title='Clone' data-url='{% url "samples_manager:experiment_clone" experiment.id %}'>
+                        <span class='glyphicon glyphicon-duplicate'></span>
+                    </button>
+                    <a href='{% url "samples_manager:experiment_print" experiment.id  %}'>
+                        <button type='button' class='btn btn-info' title='Print'>
+                            <span class='glyphicon glyphicon-print'></span>
+                        </button>
+                    </a>
+                    <button type='button' class='btn btn-danger btn js-load-experiment-form js-delete-experiment'
+                        data-url='{% url "samples_manager:experiment_delete" experiment.id %}'
+                        title='Delete experiment'>
+                        <span class='glyphicon glyphicon-trash'></span>
+                    </button>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan='8' class='text-center bg-warning'>No experiment</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id='partial-template-pagination-bottom'>
+    {% include 'samples_manager/pagination.html' %}
+</div>

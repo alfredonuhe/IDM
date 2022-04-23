@@ -1,0 +1,23 @@
+<meta charset='UTF-8'>
+{% load static %}
+{% load widget_tweaks %}
+<form method='post' action='{% url "samples_manager:experiment_comment_update" form.instance.pk %}'
+    class='ui form js-submit-experiment-form js-experiment-comment-update-form'>
+    {% csrf_token %}
+    <div class='ui center aligned segment container'>
+        <div class='ui centered header'>
+            <h3>Update Comment</h3>
+        </div>
+
+        <div class='ui center aligned segment container'>
+            {% for field in form %}
+            {% include 'samples_manager/form_field.html' %}
+            {% endfor %}
+        </div>
+
+        <div class='two ui buttons actions'>
+            <button type='button' class='ui deny medium button'>Cancel</button>
+            <button type='submit' id='experiment-submit' class='ui positive medium button submit'>Submit</button>
+        </div>
+    </div>
+</form>

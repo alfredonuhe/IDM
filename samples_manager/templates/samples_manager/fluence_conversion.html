@@ -1,0 +1,54 @@
+{% extends 'samples_manager/base_details.html' %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<div class='active section'>Fluence and Dose Conversions</div>
+{% endblock %}
+
+{% block partial_template %}
+<div class='ui horizontal segments'>
+    <div class='ui segment'>
+        <h3 class='ui center aligned header'>Proton vs. 1MeV neutron equivalent fluence</h3>
+        <p style='text-align: justify'>
+            The equivalent 1 MeV neutron fluence Φ<sub>eq</sub> can be calculated multiplying the proton fluence
+            (Φ<sub>p</sub>) by the hardness factor k: </p>
+        <div class='ui center aligned segment'>
+            <p>
+                <bold>Φ<sub>eq</sub> = k × Φ<sub>p</sub> [cm<sup>-2</sup>] </bold>
+            </p>
+        </div>
+        <p style='text-align: justify'> For a 24 GeV/c proton beam (IRRAD) k = 0.58 (best estimate from experimental
+            measurements: <a href='placeholder.url.com' style=' text-decoration: underline;'>
+                placeholder.url.com </a>
+        </p>
+    </div>
+    <div class='ui segment'>
+        <h3 class='ui center aligned header'>Proton fluence vs. Total Ionising Dose</h3>
+        <p style='text-align: justify'>
+            Proton of momentum &ge;GeV/c and pions &ge;300 MeV/c deposit energy at a rate of ~2 MeV·cm<sup>2</sup>/g in
+            practically all target materials (minimum ionizing energy loss rate). Under these conditions (valid for the
+            CERN PS protons of IRRAD and positive pions at PSI) a good estimation of the absorbed dose [Gy] can be done
+            using: </p>
+        <div class='ui center aligned segment'>
+            <p>Dose [Gy] = 1.602 × 10<sup>-10</sup> × (dE/dx)<sub>min</sub> [MeV·cm<sup>2</sup>/g] ×
+                Φ<sub>p</sub>[cm<sup>-2</sup>]</p>
+        </div>
+        <p style='text-align: justify'>Where Φ<sub>p</sub> is the proton (or pion) fluence [cm<sup>-2</sup>] and
+            (dE/dx)<sub>min</sub> are the values listed in this <a
+                href='placeholder.url.com'
+                style=' text-decoration: underline;'>table</a> [MeV·cm<sup>2</sup>/g] for various materials and
+            compounds. </p>
+        <p style='text-align: justify'> For further information please read this publicaton <a
+                href='placeholder.url.com'
+                style=' text-decoration: underline;'>https://doi.org/10.1109/TNS.2018.2829864</a></p>
+        </p>
+    </div>
+    <div class='ui segment'>
+        <h3 class='ui center aligned header'>TID (Gy) vs. TID (rad)</h3>
+        <p style='text-align: justify'>Please, find an online converter in this <a
+                href='placeholder.url.com'
+                style=' text-decoration: underline;'>link</a></p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'samples_manager/base_action_tab_list.html' %}
+{% load static %}
+
+{% block modals %}
+{% endblock %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<a class='section' href='{% url "samples_manager:experiments_list" %}'>Experiments</a>
+<div class='divider'> / </div>
+<a class='section' href='{% url "samples_manager:experiment_samples_list" sample.experiment.id %}'>Samples {{sample.experiment.title}}</a>
+<div class='divider'> / </div>
+<div class='section active'>Dosimetry results {{ sample.name }}</div>
+{% endblock %}
+
+{% block actions %}
+<div class='two wide column'>
+    <button type='button' class='ui yellow tiny button action-button' 
+        id='dosimetry-results-export' title='Export results'>
+        <i class='download icon'></i>Export results
+    </button>
+</div>
+{% endblock %}
+
+{% block partial_template %}
+{% include 'samples_manager/partial_sample_dosimetry_results_list.html' %}
+{% endblock %}
+
+{% block javascript %}
+<script type='text/javascript' src='{% static "js/irradiations.js" %}'></script>
+{% endblock %}

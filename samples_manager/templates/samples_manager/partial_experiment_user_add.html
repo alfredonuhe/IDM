@@ -1,0 +1,18 @@
+<meta charset='UTF-8'>
+{% load static %}
+{% load widget_tweaks %}
+<form method='post' action='{% url "samples_manager:add_experiment_user" experiment.id %}' class='ui form js-submit-user-form js-user-create-form'>
+    {% csrf_token %}
+    <div class='ui center aligned segment container'>
+        <div class='ui centered header'>
+            <h3>Add User</h3>
+        </div>
+        {% for field in form %}
+        {% include 'samples_manager/form_field.html' %}
+        {% endfor %}
+        <div class='two ui buttons actions'>
+            <button type='button' class='ui deny medium button'>Cancel</button>
+            <button type='submit' class='ui positive medium button submit'>Submit</button>
+        </div>
+    </div>
+</form>

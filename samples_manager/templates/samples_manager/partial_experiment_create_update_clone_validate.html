@@ -1,0 +1,175 @@
+<meta charset='UTF-8'>
+{% load static %}
+{% load widget_tweaks %}
+<form method='post' action='{{ form_tag_action }}'
+    class='ui form js-submit-experiment-form js-experiment-{{ form_action|lower }}-form'>
+    {% csrf_token %}
+    <div class='ui centered grid container'>
+        <div class='ui text container'>
+            <div class='three ui buttons center aligned grid container' style='margin:20px;'>
+                <div class='ui big basic blue button{% if current_page != 1 %} unactive-tab{% endif %}' id='step-tab-1'>
+                    <div class='content '>Step 1</div>
+                </div>
+                <div class='ui big blue basic button{% if current_page != 2 %} unactive-tab{% endif %}' id='step-tab-2'>
+                    <div class='content'>Step 2</div>
+                </div>
+                <div class='ui big blue basic button{% if current_page != 3 %} unactive-tab{% endif %}' id='step-tab-3'>
+                    <div class='content'>Step 3</div>
+                </div>
+            </div>
+            <div id='steps'>
+                <div id='step-1' class='transition{% if current_page == 1 %} visible{% else %}hidden{% endif %}'>
+                    <div class='ui center aligned segment container '>
+                        <div class='ui centered header'>
+                            <h3>{{ form_action }} Experiment</h3>
+                            <p class='required form-description-area'>* required field</p>
+                        </div>
+                        {% for field in form1 %}
+                        {% include 'samples_manager/form_field.html' %}
+                        {% endfor %}
+                        <div class='two ui buttons actions'>
+                            <button type='button' class='ui deny medium button'>Cancel</button>
+                            <button type='button' class='ui  inverted blue  medium button next-step'>Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id='step-2' class='transition {% if current_page == 2 %}visible{% else %}hidden{% endif %}'>
+                    <div class='ui center aligned segment container '>
+                        {% for field in form2 %}
+                        {% include 'samples_manager/form_field.html' %}
+                        {% endfor %}
+                        <div id='passive_standard_category' style='display:none'>
+                            <p>Irradiation area:</p>
+                            <div class='fields'>
+                                {% for field in passive_standard_categories_form %}
+                                {% include 'samples_manager/form_field.html' %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div id='passive_custom_category'>
+                            {% for field in passive_custom_categories_form %}
+                            {% include 'samples_manager/form_field.html' %}
+                            {% endfor %}
+                        </div>
+                        <div id='active_category'>
+                            {% for field in active_categories_form %}
+                            {% include 'samples_manager/form_field.html' %}
+                            {% endfor %}
+                        </div>
+                        <table class='ui celled table formset_table req_fluence_formset'>
+                            {{ fluence_formset.management_form }}
+                            {% for form in fluence_formset.forms %}
+                            {% include 'samples_manager/formset_table_head.html' %}
+                            {% endfor %}
+                            <tbody>
+                                {% for form in fluence_formset.forms %}
+                                {% include 'samples_manager/formset_table_body_row.html' %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <table class='ui celled table formset_table material_formset'>
+                            {{ material_formset.management_form }}
+                            {% for form in material_formset.forms %}
+                            {% include 'samples_manager/formset_table_head.html' %}
+                            {% endfor %}
+                            <tbody>
+                                {% for form in material_formset.forms %}
+                                {% include 'samples_manager/formset_table_body_row.html' %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <div class='two ui buttons actions'>
+                            <button type='button' class='ui  inverted blue  medium button prev-step'>Previous</button>
+                            <button type='button' class='ui  inverted blue  medium button next-step'>Next</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id='step-3' class='transition {% if current_page == 3 %}visible{% else %}hidden{% endif %}'>
+                    <div class='ui center aligned  segment container '>
+                        {% for field in form3 %}
+                        {% include 'samples_manager/form_field.html' %}
+                        {% endfor %}
+                        <div class='two ui buttons actions'>
+                            <button type='button' class='ui inverted blue medium button prev-step'>Previous</button>
+                            <button type='submit' id='experiment-submit'
+                                class='ui positive medium button submit'>Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script type='text/javascript' src='{% static "js/jquery.formset.js" %}'></script>
+<script type='text/javascript' src='{% static "js/steps.js" %}'></script>
+<script>
+    $(document).ready(function () {
+        if ($('#id_category').val() === 'Passive Standard') {
+            $('#passive_custom_category').hide();
+            $('#active_category').hide();
+            $('#passive_standard_category').show();
+
+        }
+        else if ($('#id_category').val() === 'Passive Custom') {
+            $('#passive_standard_category').hide();
+            $('#active_category').hide();
+            $('#passive_custom_category').show();
+        }
+        else if ($('#id_category').val() === 'Active') {
+            $('#passive_standard_category').hide();
+            $('#passive_custom_category').hide();
+            $('#active_category').show();
+        } else {
+            $('#passive_standard_category').hide();
+            $('#passive_custom_category').hide();
+            $('#active_category').hide();
+        }
+
+        $('#id_category').on('change', function () {
+            if ($('#id_category').val() === 'Passive Standard') {
+                $('#passive_custom_category').hide();
+                $('#active_category').hide();
+                $('#passive_standard_category').show();
+
+            }
+            else if ($('#id_category').val() === 'Passive Custom') {
+                $('#passive_standard_category').hide();
+                $('#active_category').hide();
+                $('#passive_custom_category').show();
+            }
+            else if ($('#id_category').val() === 'Active') {
+                $('#passive_standard_category').hide();
+                $('#passive_custom_category').hide();
+                $('#active_category').show();
+            } else {
+                $('#passive_standard_category').hide();
+                $('#passive_custom_category').hide();
+                $('#active_category').hide();
+            }
+        });
+        $('.req_fluence_formset .formset_row').formset({
+            addText: 'Add',
+            deleteText: '×',
+            prefix: '{{ fluence_formset.prefix }}',
+            formCssClass: 'dynamic-formset-{{ fluence_formset.prefix }}',
+            addCssClass: '{{ fluence_formset.prefix }}-add-row',
+            deleteCssClass: '{{ fluence_formset.prefix }}-delete-row'
+        });
+        $('.material_formset .formset_row').formset({
+            addText: 'Add',
+            deleteText: '×',
+            prefix: '{{ material_formset.prefix }}',
+            formCssClass: 'dynamic-formset-{{ material_formset.prefix }}',
+            addCssClass: '{{ material_formset.prefix }}-add-row',
+            deleteCssClass: '{{ material_formset.prefix }}-delete-row'
+        });
+        $(function () {
+            $('#id_availability').datepicker({ dateFormat: 'dd/mm/yy' });
+        });
+        activateSearchSelectFields();
+        activatePopups();
+    });
+</script>

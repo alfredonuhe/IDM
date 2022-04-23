@@ -1,0 +1,13 @@
+<div method='post' id='change-experiment_visibility'
+    action='{% url "samples_manager:update_experiment_visibility" experiment.id %}'>
+    {% csrf_token %}
+    {%if experiment.public_experiment %}
+    <input type='checkbox' name='public_experiment' class='public_experiment_checkbox' checked>
+    <label id='label_checked'>Your experiment is now visible to other users. To visit other user's experiments please <a
+            href='{% url "samples_manager:experiments_shared_list" %}'>click here</a>.</label>
+    {% else %}
+    <input type='checkbox' name='public_experiment' class='public_experiment_checkbox'>
+    <label id='label_unchecked'>Make your experiment details visible to other users.<br>This will allow you to see other
+        users' experiments, too.</label>
+    {% endif %}
+</div>

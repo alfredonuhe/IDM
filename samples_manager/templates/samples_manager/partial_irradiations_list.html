@@ -1,0 +1,67 @@
+{% load static %}
+{% load custom_filters %}
+{% if pagination_data.double_pagination %}
+<div id='partial-template-pagination-top'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+{% endif %}
+<div id='partial-template-table'>
+    <table class='ui center aligned sortable celled table very compact striped' id='data-table'>
+        <thead>
+            <tr>
+                <th class='sorttable_nosort'><input name='select_all' value='1'
+                    id='all-checkbox' class='checkbox' type='checkbox' /></th>
+                <th>ID</th>
+                <th>Updated at</th>
+                <th>Sample</th>
+                <th>Dosimeter</th>
+                <th>Previous Irr. ID</th>
+                <th>Date in</th>
+                <th>Date first SEC</th>
+                <th>Date last SEC</th>
+                <th>Date out</th>
+                <th>IRRAD<br>table</th>
+                <th>Table<br>position</th>
+                <th>Fluence factor</th>
+                <th>Estimated <br> Acc. fluence</th>
+                <th>Acc. SEC</th>
+                <th>Scan</th>
+                <th>Responsible</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for irradiation in irradiations %}
+            <tr>
+                <td><input type='checkbox' class='checkbox' id='irradiation-{{irradiation.id}}' name='checks[]'
+                    value='{{irradiation.id}}'></td>
+                <td>{{irradiation.id}}</td>
+                <td class='updated-at'>{{ irradiation.updated_at|date:"d/m/Y"}} {{ irradiation.updated_at|time:"H:i:s"}}</td>
+                <td>{% if irradiation.sample %}<a href='{% url "samples_manager:sample_details" irradiation.sample.experiment.id irradiation.sample.id %}'>{{irradiation.sample.set_id}}({{irradiation.sample}})</a>{% endif %}</td>
+                <td><a href='{% url "samples_manager:dosimeter_details" irradiation.dosimeter.id %}'>{{irradiation.dosimeter.dos_id}}</td>
+                <td>{{irradiation.previous_irradiation.id}}</a></td>
+                <td>{{irradiation.date_in|date:"d/m/Y"}} {{irradiation.date_in|time:"H:i:s"}}</td>
+                <td>{{irradiation.date_first_sec|date:"d/m/Y"}} {{irradiation.date_first_sec|time:"H:i:s"}}</td>
+                <td>{{irradiation.date_last_sec|date:"d/m/Y"}} {{irradiation.date_last_sec|time:"H:i:s"}}</td>
+                <td>{{irradiation.date_out|date:"d/m/Y"}} {{irradiation.date_out|time:"H:i:s"}}</td>
+                <td>{{irradiation.irrad_table}}</td>
+                <td>{{irradiation.table_position}}</td>
+                <td class='factor-value'>{{irradiation.fluence_factor.value|num_notation:'4e'}}</td>
+                <td class='estimated-fluence'>{{irradiation.estimated_fluence|num_notation:'4e'}}</td>
+                <td class='sec'>{{irradiation.sec}}</td>
+                <td>{{irradiation.is_scan}}</td>
+                <td>{% if irradiation.sample %}{{irradiation.sample.experiment.responsible}}{% else %}None{% endif %}</td>
+                <td>{{irradiation.status}}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan='12'>There are no ongoing irradiations. All irradiations are completed</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id='partial-template-pagination-bottom'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+<script type='text/javascript' src='{% static "js/checkboxes.js" %}'></script>

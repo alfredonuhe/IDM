@@ -1,0 +1,121 @@
+{% extends 'samples_manager/base_details.html' %}
+{% load custom_filters %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<a class='section' href='{% url "samples_manager:dosimeters_list" %}'>Dosimeters</a>
+<div class='divider'> / </div>
+<div class='active section'>Details {{ dosimeter.dos_id }}</div>
+{% endblock %}
+
+{% block partial_template %}
+<div class='ui two column grid'>
+    <div class='column'>
+        <div class='ui segment'>
+            <div class='ui divided selection list'>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        ID
+                    </div>
+                    {{dosimeter.dos_id}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Responsible
+                    </div>
+                    {{dosimeter.responsible.email}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Location
+                    </div>
+                    {{dosimeter.current_location}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Dimensions
+                    </div>
+                        {{dosimeter.width|num_notation:'4d'}} x {{dosimeter.height|num_notation:'4d'}} x {{dosimeter.length|num_notation:'4d'}} (wxhxl mm) 
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Foils Number
+                    </div>
+                    {{dosimeter.foils_number}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Weight
+                    </div>
+                    {{dosimeter.weight|num_notation:'4d'}} g
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Status
+                    </div>
+                    {{dosimeter.status}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Type
+                    </div>
+                    {{dosimeter.dos_type}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='column'>
+        <div class='ui segment'>
+            <div class='ui divided selection list'>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Box
+                    </div>
+                    {%if dosimeter.box %}
+                    <a href='{% url "samples_manager:box_details" dosimeter.box.id %}'>{{dosimeter.box.box_id}}</a>
+                    {% endif %}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Parent Dosimeter
+                    </div>
+                    {%if dosimeter.parent_dosimeter %}
+                    <a href='{% url "samples_manager:dosimeter_details" dosimeter.parent_dosimeter.id %}'>{{dosimeter.parent_dosimeter.dos_id}}</a>
+                    {% endif %}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Created at
+                    </div>
+                    {{dosimeter.created_at}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Updated at
+                    </div>
+                    {{dosimeter.updated_at}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Created by
+                    </div>
+                    {{dosimeter.created_by}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Updated by
+                    </div>
+                    {{dosimeter.updated_by}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Comments
+                    </div>
+                    {{dosimeter.comments}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

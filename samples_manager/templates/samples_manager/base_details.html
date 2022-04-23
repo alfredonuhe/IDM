@@ -1,0 +1,9 @@
+{% extends 'samples_manager/base_list.html' %}
+{% block list_content %}
+<div id='partial-template-container' class='sixteen wide column overflow-unset'>
+    <div id='partial-template' class='text-align-left'>
+        {% block partial_template %}
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

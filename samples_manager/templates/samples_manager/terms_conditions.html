@@ -1,0 +1,90 @@
+{% extends 'samples_manager/base_details.html' %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<div class='section active'>General Terms</div>
+{% endblock %}
+
+{% block partial_template %}
+<div class='ui two column grid'>
+    <div class='column'>
+        <div class='ui center aligned segment'>
+            <h3>IDM Usage</h3>
+        </div>        
+        <div class='ui segment'>
+            <p>
+                The IRRAD Data Manager (IDM) hosts information about the IRRAD facility users, irradiation experiments and materials. 
+                By accessing/using the Irradiation Facilities Database, you agree to be bound by these Terms of Use. These Terms of 
+                Use do not apply to external websites accessible via hyperlinks.
+            </p>
+            <p>
+                The IDM information is made available free-of-charge, for information purposes only. You can use IDM and its content 
+                for non-military purposes only, and under no circumstances, you may sell or sublicense its content. IDM relays on 
+                the information submitted by the IRRAD facility users. Access to IDM, and all content, is provided on an as-is basis 
+                and CERN accepts no liability for its use. You are fully and solely responsible for the use of the content and for 
+                any results and consequences of this use. The IRRAD users are fully and solely responsible for the content provided 
+                in IDM.
+            </p>
+            <p>
+                CERN reserves the right, without notice, at its sole discretion and without liability to restrict or remove access 
+                to the users where it considers that use of IDM violates these Terms of Use or applicable laws.
+            </p>
+            <p>
+                You shall not use or refer to any images of CERN, the CERN logos, any of the names or acronyms under which CERN is 
+                known, or any other logos displayed in IDM without CERN’s prior written permission.
+            </p>
+            <p>    
+                You recognize that IDM, as well as its particular features, its presentation and design are protected by applicable 
+                intellectual property laws.
+            </p>
+            <p>
+                These terms of Use are subject to change by CERN at any time and without notice, other than through posting the 
+                updated Terms of Use on the IDM website. <span style='text-decoration: underline;'>Nothing in or 
+                relating to these Terms of Use shall be deemed or interpreted as a waiver of any privileges and immunities accorded 
+                to CERN as intergovernmental organization.</span>
+            </p>
+            <p>
+                If you have any questions or comments with respect to the Irradiation Facilities Database, please contact the IRRAD facility team.
+            </p>
+        </div>
+    </div>
+    <div class='column'>
+        <div class='ui center aligned segment'>
+            <h3>Irradiation Experiments</h3>
+        </div> 
+        <div class='ui segment'>
+            <p>
+                The access to the IRRAD area is given once per week (Wednesday morning from 9:00 to 12:00) to allow the 
+                installation/removal of large samples and experimental test setups. Samples installation on the irradiation tables 
+                requires dedicated support frames provided by the users.
+            </p>
+            <p>
+                Depending on the samples nature, the preparation of an irradiation permit (PRP17) may be required before the irradiation 
+                begins (<a href='placeholder.url.com'>placeholder.url.com</a>). This safety procedure 
+                may require several weeks to be completed. In case of doubts, please contact the IRRAD facility team.
+            </p>
+            <p>
+                Users are requested to be present at CERN in case their samples have to be handled before and/or after irradiation (e.g. 
+                to prepare them for shipping outside CERN).
+            </p>
+            <p>
+                Installation/removal of complex experiments on the irradiation tables require the presence of a minimum of two people from 
+                the users’ team on site. Users are responsible for obtaining the required safety training ranks, access rights, personal 
+                (DIS) and operational dosimeters (DMC), as well as all required Personal Protective Equipment (safety shoes, helmet) before 
+                the scheduled access slot. All requirements to be able to access the IRRAD irradiation area are available <a 
+                target='_blank' href='placeholder.url.com'>here</a>.
+            </p>
+        </div>
+        <div class='ui center aligned segment'>
+            <h3>Data Privacy</h3>
+        </div> 
+        <div class='ui segment'>
+            <p>
+                IDM follows CERN's personal data processing guidelines. Details about how personal data is processed at CERN is available 
+                <a target='_blank' href='placeholder.url.com'>here</a>.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

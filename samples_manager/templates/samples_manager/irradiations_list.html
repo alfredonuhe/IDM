@@ -1,0 +1,61 @@
+{% extends 'samples_manager/base_all_tab_list.html' %}
+{% load static %}
+
+{% block modals %}
+<!-- THE MODAL WE WILL BE USING -->
+<div class='ui modal' id='modal-irradiation'>
+    <i class='close icon'></i>
+    <div class='content modal-content'>
+    </div>
+</div>
+{% endblock %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<div class='active section'>Irradiations</div>
+{% endblock %}
+
+{% block actions %}
+<div class='two wide column'>
+    <button type='button' class='ui blue tiny button action-button js-load-irradiation-form' 
+        id='irradiation-create' title='Create irradiation'
+        data-url='{% url "samples_manager:irradiation_create" %}'>
+        <i class='plus icon'></i>Create
+    </button>
+</div>
+<div class='two wide column'>
+    <button type='button' class='ui tiny button action-button js-load-irradiation-form single-action' 
+        id='irradiation-update' title='Update irradiation'
+        data-url='{% url "samples_manager:irradiation_update" %}'>
+        <i class='pencil icon'></i>Update
+    </button>
+</div>
+<div class='four wide column'>
+    <button type='button' class='ui tiny button action-button js-load-irradiation-form group-action' 
+        id='irradiation-set-beam-status' title='Set irradiation beam status'
+        data-url='{% url "samples_manager:irradiation_in_beam_status_update" %}'
+        sec-url='{% url "samples_manager:irradiations_update_sec" %}'>
+        <i class='pencil icon'></i>Set in/out of beam
+    </button>
+    <!-- Disabled temporarily -->
+    <!--<button type='button' class='ui violet tiny button action-button js-load-irradiation-form group-action' 
+        id='irradiation-update-status' title='Update irradiation status'
+        data-url='{% url "samples_manager:irradiation_status_update" %}'>
+        <i class='pencil icon'></i>Update status
+    </button>-->
+    <button type='button' class='ui red tiny button action-button js-load-irradiation-form group-action' 
+        id='irradiation-delete' title='Delete irradiation'
+        data-url='{% url "samples_manager:irradiation_delete" %}'>
+        <i class='trash icon'></i>Delete
+    </button>
+</div>
+{% endblock %}
+
+{% block partial_template %}
+{% include 'samples_manager/partial_irradiations_list.html' %}
+{% endblock %}
+
+{% block javascript %}
+<script type='text/javascript' src='{% static "js/irradiations.js" %}'></script>
+{% endblock %}

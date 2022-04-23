@@ -1,0 +1,32 @@
+[
+    {
+        "model": "samples_manager.fluencefactor",
+        "pk": 1,
+        "fields": {
+            "value": 181500,
+            "dosimeter_height": 10,
+            "dosimeter_width": 10,
+            "irrad_table": "IRRAD3",
+            "is_scan": false,
+            "status": "Active",
+            "nuclide": "Na-22",
+            "created_at": "2020-12-12T13:00:00+00:00",
+            "updated_at": "2020-12-12T14:00:00+00:00"
+        }
+    },
+    {
+        "model": "samples_manager.fluencefactor",
+        "pk": 2,
+        "fields": {
+            "value": 406200,
+            "dosimeter_height": 10,
+            "dosimeter_width": 10,
+            "irrad_table": "IRRAD7",
+            "is_scan": true,
+            "status": "Active",
+            "nuclide": "Na-22",
+            "created_at": "2020-12-12T13:00:00+00:00",
+            "updated_at": "2020-12-12T14:00:00+00:00"
+        }
+    }
+]

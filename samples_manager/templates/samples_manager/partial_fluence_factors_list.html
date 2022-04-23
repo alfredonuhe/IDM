@@ -1,0 +1,50 @@
+{% load static %}
+{% load custom_filters %}
+{% if pagination_data.double_pagination %}
+<div id='partial-template-pagination-top'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+{% endif %}
+<div id='partial-template-table'>
+    <table class='ui center aligned sortable celled table very compact striped' id='data-table'>
+        <thead>
+            <tr>
+                <th class='sorttable_nosort'><input name='select_all' value='1'
+                    id='all-checkbox' class='checkbox' type='checkbox' /></th>
+                <th>ID</th>
+                <th>Created</th>
+                <th>Last update</th>
+                <th>Value</th>
+                <th>IRRAD Table</th>
+                <th>Dosimeter Height</th>
+                <th>Dosimeter Width</th>
+                <th>Nuclide</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for factor in factors %}
+            <tr>
+                <td><input type='checkbox' class='checkbox' id='factor-{{factor.id}}' name='checks[]'
+                    value='{{factor.id}}'></td>
+                <td>{{ factor.id }}</td>
+                <td>{{ factor.created_at|date:"d/m/Y"}} {{ factor.created_at|time:"H:i:s"}}</td>
+                <td>{{ factor.updated_at|date:"d/m/Y"}} {{ factor.updated_at|time:"H:i:s"}}</td>
+                <td>{{ factor.value|num_notation:'4e' }}</td>
+                <td>{{ factor.irrad_table }}</td>
+                <td>{{ factor.dosimeter_height }}</td>
+                <td>{{ factor.dosimeter_width }}</td>
+                <td>{{ factor.nuclide }}</td>
+                <td>{{ factor.status }}</td>
+            {% empty %}
+            <tr>
+                <td colspan='12'>There are no factors.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id='partial-template-pagination-bottom'>
+    {% include 'samples_manager/pagination.html' %}
+</div>
+<script type='text/javascript' src='{% static "js/checkboxes.js" %}'></script>

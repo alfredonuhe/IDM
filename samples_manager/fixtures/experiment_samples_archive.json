@@ -1,0 +1,11 @@
+[
+    {
+        "model": "samples_manager.archiveexperimentsample",
+        "pk": 1,
+        "fields": {
+            "timestamp": "2020-12-12T13:00:00+00:00",
+            "experiment": 1,
+            "sample": 3
+        }
+    }
+]

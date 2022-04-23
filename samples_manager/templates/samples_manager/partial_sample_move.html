@@ -1,0 +1,27 @@
+{% load widget_tweaks %}
+<form method='post' action='{% url "samples_manager:sample_move" experiment.id %}'
+    class='ui form js-submit-sample-form js-sample-move-form'>
+    {% csrf_token %}
+    <div class='ui center aligned segment container'>
+        <div class='ui centered header'>
+            <h3>Move samples</h3>
+        </div>
+        {% include 'samples_manager/form_collapsible_text.html' %}
+        {% for field in form1 %}
+        {% include 'samples_manager/form_field.html' %}
+        {% endfor %}
+        {% for field in form2 %}
+        {% include 'samples_manager/form_field.html' %}
+        {% endfor %}
+        <div class='two ui buttons actions'>
+            <button type='button' class='ui deny medium button'>Cancel</button>
+            <button type='submit' class='ui positive medium button submit'>Submit</button>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        activateSearchSelectFields();
+        activatePopups(500);
+    });
+</script>

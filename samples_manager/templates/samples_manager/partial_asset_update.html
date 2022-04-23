@@ -1,0 +1,90 @@
+<meta charset='UTF-8'>
+{% load static %}
+{% load custom_filters %}
+{% load widget_tweaks %}
+<form method='post' action='{% url "samples_manager:asset_update" sample.id %}' class='ui form js-asset-update-form'>
+    {% csrf_token %}
+    <div class='ui center aligned segment container'>
+        <div class='ui text container'>
+            <div class='two ui buttons center aligned grid container' style='margin:20px;'>
+                <div class=' ui  big basic blue button' id='step-tab-1'>
+                    <div class='content '>Step 1</div>
+                </div>
+                <div class=' ui  big blue basic button unactive-tab' id='step-tab-2'>
+                    <div class='content'>Step 2</div>
+                </div>
+            </div>
+
+            <div id='step-1'>
+                <div class='ui center aligned segment container'>
+                    <div class='ui centered header'>
+                        <h3>Asset Update</h3>
+                    </div>
+                    <div class='field form-group'>
+                        <label>Code</label>
+                        <input value='{{code}}' type='text' id='code' name='code' />
+                    </div>
+                    <div class='field form-group'>
+                        <label>Serial Number</label>
+                        <input value='{{serialNumber}}' type='text' id='serialNumber' name='serialNumber' />
+                    </div>
+                    <div class='field form-group'>
+                        <label>Description</label>
+                        <input value='{{description}}' type='text' id='description' name='description' />
+                    </div>
+                    <div class='field form-group'>
+                        <label>Location</label>
+                        <input value='{{hierarchyLocationCode}}' type='text' id='hierarchyLocationCode'
+                            name='hierarchyLocationCode' />
+                    </div>
+                    <div class='field form-group'>
+                        <label>Value (CHF)</label>
+                        <input value='{{equipmentValue}}' type='text' id='equipmentValue' name='equipmentValue' />
+                    </div>
+                    <div class='two ui buttons actions'>
+                        <button type='button' class='ui deny medium button'>Cancel</button>
+                        <button type='button' class='ui  inverted blue  medium button next-step'>Next</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id='step-2'>
+                <div class='ui center aligned  segment container '>
+                    <div class='ui centered header'>
+                        <h3>Characteristics</h3>
+                    </div>
+                    <div class='field form-group'>
+                        <label>Length (cm)</label>
+                        <input value='{{length|num_notation:"4d"}}' type='text' id='length' name='length' />
+                    </div>
+                    <div class='field form-group'>
+                        <label>Width (cm)</label>
+                        <input value='{{width|num_notation:"4d"}}' type='text' id='width' name='width' />
+                    </div>
+                    <div class='field form-group'>
+                        <label>Height (cm)</label>
+                        <input value='{{height|num_notation:"4d"}}' type='text' id='height' name='height' />
+                    </div>
+                    <div class='field form-group'>
+                        <label>Weight (kg)</label>
+                        <input value='{{weight|num_notation:"4d"}}' type='text' id='weight' name='weight' />
+                    </div>
+                    <div class='field form-group'>
+                        <label>Family</label>
+                        <input value='{{family}}' type='text' id='family' name='family' />
+                    </div>
+                    <div class='field form-group'>
+                        <label>Material</label>
+                        <input value='{{material}}' type='text' id='material' name='material' />
+                    </div>
+
+                    <div class='two ui buttons actions'>
+                        <button type='button' class='ui inverted blue medium button prev-step'>Previous</button>
+                        <button type='submit' id='experiment-submit'
+                            class='ui positive medium button submit'>Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+<script type='text/javascript' src='{% static "js/steps.js" %}'></script>

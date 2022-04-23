@@ -1,0 +1,105 @@
+{% extends 'samples_manager/base_details.html' %}
+{% load custom_filters %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<div class='active section'>inforEAM details {{data.serialNumber}}</div>
+{% endblock %}
+
+{% block partial_template %}
+{% if exists %}
+<div class='ui two column grid'>
+    <div class='column'>
+        <div class='ui segment'>
+            <div class='ui blue ribbon label'>Identification</div>
+            <div class='ui divided selection list'>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Code
+                    </div>
+                    {{data.code}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Serial number
+                    </div>
+                    {{data.serialNumber}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Description
+                    </div>
+                    {{data.description}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Current location
+                    </div>
+                    {{data.hierarchyLocationCode}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Equipment value
+                    </div>
+                    {{data.equipmentValue|num_notation:'2d'}} CHF
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Location
+                    </div>
+                    {{data.hierarchyLocationCode}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='column'>
+        <div class='ui segment'>
+            <div class='ui blue ribbon label'>Charecteristics</div>
+            <div class='ui divided selection list'>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Length
+                    </div>
+                    {{data.udfnum07|num_notation:'4d'}} cm
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Width
+                    </div>
+                    {{data.udfnum08|num_notation:'4d'}} cm
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Height
+                    </div>
+                    {{data.udfnum09|num_notation:'4d'}} cm
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Weight
+                    </div>
+                    {{data.udfnum10|num_notation:'4d'}} kg
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Family
+                    </div>
+                    {{data.udfchar21}}
+                </div>
+                <div class='item'>
+                    <div class='ui horizontal label'>
+                        Material
+                    </div>
+                    {{data.udfchar22}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class='ui center aligned segment grid'>
+    <p>ID '{{equipment_id}}' is invalid or does not exist in inforEAM</p>
+</div>
+{% endif %}
+{% endblock %}

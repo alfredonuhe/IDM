@@ -1,0 +1,45 @@
+{% extends base_template %}
+{% load static %}
+
+{% block modals %}
+<div class='ui modal' id='modal-user'>
+    <i class='close icon'></i>
+    <div class='content modal-content'>
+    </div>
+</div>
+{% endblock %}
+
+{% block breadcrumb %}
+<a class='section' href='{% url "samples_manager:index" %}'>Home</a>
+<div class='divider'> / </div>
+<a class='section' href='{% url "samples_manager:experiments_list" %}'>Experiments</a>
+<div class='divider'> / </div>
+<div class='active section'>Users {{experiment.title}}</div>
+{% endblock %}
+
+{% block actions %}
+<div class='two wide column'>
+    <button type='button' class='ui blue tiny button action-button js-load-user-form' 
+        id='user-add' title='Add user'
+        data-url='{% url "samples_manager:add_experiment_user" experiment.id %}'>
+        <i class='plus icon'></i>Add
+    </button>
+</div>
+{% if experiment.status != 'Completed' %}
+<div class='two wide column'>
+    <button type='button' class='ui red tiny button action-button js-load-user-form group-action' 
+        id='user-remove' title='Remove user'
+        data-url='{% url "samples_manager:remove_experiment_user" experiment.id %}'>
+        <i class='trash icon'></i>Remove
+    </button>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block partial_template %}
+{% include 'samples_manager/partial_experiment_users_list.html' %}
+{% endblock %}
+
+{% block javascript %}
+<script type='text/javascript' src='{% static "js/users.js" %}'></script>
+{% endblock %}
